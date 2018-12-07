@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<head>
+<title>管理员后台管理</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font.css" type="text/css"/>
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<!-- calendar -->
+<link rel="stylesheet" href="css/monthly.css">
+<!-- //calendar -->
+<!-- //font-awesome icons -->
+<script src="js/jquery2.0.3.min.js"></script>
+<script src="js/raphael-min.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+    <a href="index.html" class="logo">
+        超级管理员
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-tasks"></i>
+                <span class="badge bg-success">1</span>
+            </a>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li>
+                    <p class="">任务反馈(只显示10条)</p>
+                </li>
+                <li>
+										<div class="task-info clearfix">
+												<div class="desc pull-left">
+														<h5>黄先生&nbsp;已提交审核任务&nbsp;
+														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+												</div>
+												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+										</div>
+                </li>
+								<li>
+										<div class="task-info clearfix">
+												<div class="desc pull-left" style="color: yellow;">
+														<h5>钱先生&nbsp;已开始处理任务&nbsp;
+														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+												</div>
+												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+										</div>
+								</li>
+								<li>
+									<a href="/delete" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+								</li>
+            </ul>
+        </li>
+        <!-- settings end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">1</span>
+            </a>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li>
+                    <p>通知反馈</p>
+                </li>
+                <li>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;已查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;已查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;未查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
+                </li>
+								<li>
+									<a href="#" style="width: 50px;float: right;">清空</a>
+								</li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--搜索和管理员信息-->
+    <ul class="nav pull-right top-menu">
+        <!-- 管理员登录开始-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="images/2.png">
+                <span class="username">王先生</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="#"><i class=" fa fa-suitcase"></i>个人中心</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
+                <li><a href="login.html"><i class="fa fa-key"></i>退出</a></li>
+            </ul>
+        </li>
+        <!-- 管理员登录结束 -->
+       
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- 侧边菜单栏开始-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>仪表板</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                		<a href="javascript:;">
+                				<i class="fa fa-bell-o"></i>
+                				<span>通知管理</span>
+                		</a>
+										<ul class="sub">
+												<li><a href="newNotification.html">新建通知</a></li>
+												<li><a href="notification.html">查看通知</a></li>
+										</ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>任务管理</span>
+                    </a>
+										<ul class="sub">
+												<li><a href="newTask.html">新建任务</a></li>
+												<li><a href="taskType.html">分类管理</a></li>
+												<li><a href="task.html">查看任务</a></li>
+										</ul>
+                </li>
+								<li class="sub-menu">
+										<a href="student.html">
+												<i class="fa fa-users"></i>
+												<span>学员管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="coach.html">
+												<i class="fa fa-users"></i>
+												<span>教练管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="javascript:;">
+												<i class="fa fa-users"></i>
+												<span>管理员管理</span>
+										</a>
+										<ul class="sub">
+												<li><a href="newAdmin.html">新增管理员</a></li>
+												<li><a href="admin.html">查看管理员</a></li>
+										</ul>
+								</li>
+								<li class="sub-menu">
+										<a href="aiticle.html">
+												<i class="fa fa-file"></i>
+												<span>文章管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="noval.html">
+												<i class="fa fa-align-left"></i>
+												<span>帖子管理</span>
+										</a>
+								</li>
+								<li>
+										<a href="login.html">
+												<i class="fa fa-user"></i>
+												<span>退出登录</span>
+										</a>
+								</li>
+            </ul>            </div>
+        <!-- 侧边菜单栏结束-->
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<!-- 仪表板第一部分 -->
+		<div class="market-updates">
+			<div class="col-md-3 market-update-gd">
+				<div class="market-update-block clr-block-2">
+					<div class="col-md-4 market-update-right">
+						<i class="fa fa-eye"> </i>
+					</div>
+					 <div class="col-md-8 market-update-left">
+					 <h4>今日访客</h4>
+					<h3>13,500</h3>
+				  </div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-3 market-update-gd">
+				<div class="market-update-block clr-block-1">
+					<div class="col-md-4 market-update-right">
+						<i class="fa fa-users" ></i>
+					</div>
+					<div class="col-md-8 market-update-left">
+					<h4>学员总数</h4>
+						<h3>1,250</h3>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-3 market-update-gd">
+				<div class="market-update-block clr-block-3">
+					<div class="col-md-4 market-update-right">
+						<i class="fa fa-users"></i>
+					</div>
+					<div class="col-md-8 market-update-left">
+						<h4>教练总数</h4>
+						<h3>19</h3>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-3 market-update-gd">
+				<div class="market-update-block clr-block-4">
+					<div class="col-md-4 market-update-right">
+						<i class="fa fa-users" aria-hidden="true"></i>
+					</div>
+					<div class="col-md-8 market-update-left">
+						<h4>管理员总数</h4>
+						<h3>3</h3>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+		   <div class="clearfix"> </div>
+		</div>	
+		
+		<div class="clearfix"> </div>
+		</div>
+			<!-- 暂时保留 -->
+			<div class="agile-last-grids" style="display: none;">
+				<div class="col-md-4 agile-last-left">
+					<div class="agile-last-grid">
+						<div class="area-grids-heading">
+							<h3>Monthly</h3>
+						</div>
+						<div id="graph7"></div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 agile-last-left agile-last-middle">
+					<div class="agile-last-grid">
+						<div class="area-grids-heading">
+							<h3>Daily</h3>
+						</div>
+						<div id="graph8"></div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 agile-last-left agile-last-right">
+					<div class="agile-last-grid">
+						<div class="area-grids-heading">
+							<h3>Yearly</h3>
+						</div>
+						<div id="graph9"></div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		<!-- //暂时保留 -->
+		<div class="agileits-w3layouts-stats">
+					<div class="col-md-8 stats-info stats-last widget-shadow">
+						<div class="stats-last-agile">
+							<table class="table stats-table ">
+								<thead>
+									<tr>
+										<th>任务编号</th>
+										<th>任务名称</th>
+										<th>任务属性</th>
+										<th>任务状态</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>举报处理</td>
+										<td>举报处理</td>
+										<td><span class="label label-success">处理中</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+</section>
+ <!-- footer -->
+		  <div class="footer">
+			<div class="wthree-copyright">
+			  <p>&copy;copyright 2018-2019. HuaXiaTangMen. All Rights Reserved. <span>|</span>
+			<a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow"> 华ICP证000001号</a></p>
+			</div>
+		  </div>
+  <!-- / footer -->
+</section>
+<!--main content end-->
+</section>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="js/jquery.scrollTo.js"></script>
+<!-- morris JavaScript -->	
+<script>
+	$(document).ready(function() {
+		//BOX BUTTON SHOW AND CLOSE
+	   jQuery('.small-graph-box').hover(function() {
+		  jQuery(this).find('.box-button').fadeIn('fast');
+	   }, function() {
+		  jQuery(this).find('.box-button').fadeOut('fast');
+	   });
+	   jQuery('.small-graph-box .box-close').click(function() {
+		  jQuery(this).closest('.small-graph-box').fadeOut(200);
+		  return false;
+	   });
+	   
+	    //CHARTS
+	    function gd(year, day, month) {
+			return new Date(year, month - 1, day).getTime();
+		}
+		
+		graphArea2 = Morris.Area({
+			element: 'hero-area',
+			padding: 10,
+        behaveLikeLine: true,
+        gridEnabled: false,
+        gridLineColor: '#dddddd',
+        axes: true,
+        resize: true,
+        smooth:true,
+        pointSize: 0,
+        lineWidth: 0,
+        fillOpacity:0.85,
+			data: [
+				{period: '2015 Q1', iphone: 2668, ipad: null, itouch: 2649},
+				{period: '2015 Q2', iphone: 15780, ipad: 13799, itouch: 12051},
+				{period: '2015 Q3', iphone: 12920, ipad: 10975, itouch: 9910},
+				{period: '2015 Q4', iphone: 8770, ipad: 6600, itouch: 6695},
+				{period: '2016 Q1', iphone: 10820, ipad: 10924, itouch: 12300},
+				{period: '2016 Q2', iphone: 9680, ipad: 9010, itouch: 7891},
+				{period: '2016 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
+				{period: '2016 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
+				{period: '2017 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
+			
+			],
+			lineColors:['#eb6f6f','#926383','#eb6f6f'],
+			xkey: 'period',
+            redraw: true,
+            ykeys: ['iphone', 'ipad', 'itouch'],
+            labels: ['All Visitors', 'Returning Visitors', 'Unique Visitors'],
+			pointSize: 2,
+			hideHover: 'auto',
+			resize: true
+		});
+		
+	   
+	});
+	</script>
+<!-- calendar -->
+	<script type="text/javascript" src="js/monthly.js"></script>
+	<script type="text/javascript">
+		$(window).load( function() {
+
+			$('#mycalendar').monthly({
+				mode: 'event',
+				
+			});
+
+			$('#mycalendar2').monthly({
+				mode: 'picker',
+				target: '#mytarget',
+				setWidth: '250px',
+				startHidden: true,
+				showTrigger: '#mytarget',
+				stylePast: true,
+				disablePast: true
+			});
+
+		switch(window.location.protocol) {
+		case 'http:':
+		case 'https:':
+		// running on a server, should be good.
+		break;
+		case 'file:':
+		alert('Just a heads-up, events will not work when run locally.');
+		}
+
+		});
+	</script>
+	<!-- //calendar -->
+</body>
+</html>

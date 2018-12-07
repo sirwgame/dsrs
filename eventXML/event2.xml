@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<event>
+	<startdate>2018-11-1</startdate>
+	<enddate>2018-11-30</enddate>
+	<url>#</url>
+	<name>测试2</name>
+	<color>green</color>
+	<id>1002</id>
+	<starttime>0:0</starttime>
+	<endtime>24:59</endtime>
+</event>

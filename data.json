@@ -1,0 +1,32 @@
+{
+	"datas": [{
+			"taskId": "PM-001",
+			"taskName": "测试用例1",
+			"taskType": "学员管理",
+			"taskStatus": "new"
+		},
+		{
+			"taskId": "PM-002",
+			"taskName": "测试用例2",
+			"taskType": "教练管理",
+			"taskStatus": "progress"
+		},
+		{
+			"taskId": "PM-003",
+			"taskName": "测试用例3",
+			"taskType": "学员管理",
+			"taskStatus": "review"
+		},
+		{
+			"taskId": "PM-004",
+			"taskName": "测试用例4",
+			"taskType": "学员管理",
+			"taskStatus": "done"
+		}
+	],
+	"pageNumber": 1,//当前页码
+	"pageSize": 3,//分页大小
+	"pageStartIndex": 0,//当前页开始编号
+	"totalPages": 8,//总页数
+	"totalRows": 22//总记录数
+}
