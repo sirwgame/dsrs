@@ -27,7 +27,7 @@
 <!--logo start-->
 <div class="brand">
     <a href="index.html" class="logo">
-        管理员
+        超级管理员
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -45,87 +45,82 @@
             </a>
             <ul class="dropdown-menu extended tasks-bar">
                 <li>
-                    <p class="">您有1个新的通知</p>
+                    <p class="">任务反馈(只显示10条)</p>
                 </li>
                 <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>33% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="90">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
+										<div class="task-info clearfix">
+												<div class="desc pull-left">
+														<h5>黄先生&nbsp;已提交审核任务&nbsp;
+														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+												</div>
+												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+										</div>
                 </li>
+								<li>
+										<div class="task-info clearfix">
+												<div class="desc pull-left" style="color: yellow;">
+														<h5>钱先生&nbsp;已开始处理任务&nbsp;
+														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+												</div>
+												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+										</div>
+								</li>
+								<li>
+									<a href="/delete" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+								</li>
             </ul>
         </li>
         <!-- settings end -->
-        <!-- inbox dropdown start-->
-        <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-important">4</span>
-            </a>
-            <ul class="dropdown-menu extended inbox">
-                <li>
-                    <p class="red">你有1个新邮件</p>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="photo"><img alt="avatar" src="images/2.png"></span>
-                                <span class="subject">
-                                <span class="from">Mr. Perfect</span>
-                                <span class="time">2 hour ago</span>
-                                </span>
-                                <span class="message">
-                                    Hi there, its a test
-                                </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">查看所有邮件</a>
-                </li>
-            </ul>
-        </li>
-        <!-- inbox dropdown end -->
         <!-- notification dropdown start-->
         <li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                 <i class="fa fa-bell-o"></i>
-                <span class="badge bg-warning">3</span>
+                <span class="badge bg-warning">1</span>
             </a>
-            <ul class="dropdown-menu extended notification">
+            <ul class="dropdown-menu extended tasks-bar">
                 <li>
-                    <p>通知</p>
+                    <p>通知反馈</p>
                 </li>
                 <li>
-                    <div class="alert alert-info clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="#"> 一般的通知</a>
-                        </div>
-                    </div>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;已查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
                 </li>
                 <li>
-                    <div class="alert alert-danger clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="#"> Server #2 overloaded.</a>
-                        </div>
-                    </div>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;已查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
                 </li>
                 <li>
-                    <div class="alert alert-success clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="#"> Server #3 overloaded.</a>
-                        </div>
-                    </div>
+                    <a href="#">
+                    		<div class="task-info clearfix">
+                    				<div class="desc pull-left" style="color: yellow;">
+                    						<h5>钱先生&nbsp;未查看通知</h5>
+                    				</div>
+                    				<span class="notification-pie-chart pull-right" data-percent="45">
+                    				<span class="percent"></span>
+                    				</span>
+                    		</div>
+                    </a>
                 </li>
+								<li>
+									<a href="#" style="width: 50px;float: right;">清空</a>
+								</li>
 
             </ul>
         </li>
@@ -134,25 +129,22 @@
     <!--  notification end -->
 </div>
 <div class="top-nav clearfix">
-    <!--search & user info start-->
+    <!--搜索和管理员信息-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search" placeholder=" Search">
-        </li>
-        <!-- user login dropdown start-->
+        <!-- 管理员登录开始-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="images/2.png">
-                <span class="username">John Doe</span>
+                <span class="username">王先生</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><a href="#"><i class=" fa fa-suitcase"></i>个人中心</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
+                <li><a href="login.html"><i class="fa fa-key"></i>退出</a></li>
             </ul>
         </li>
-        <!-- user login dropdown end -->
+        <!-- 管理员登录结束 -->
        
     </ul>
     <!--search & user info end-->
@@ -162,7 +154,7 @@
 <!--sidebar start-->
 <aside>
     <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->
+        <!-- 侧边菜单栏开始-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
@@ -171,38 +163,69 @@
                         <span>仪表板</span>
                     </a>
                 </li>
-                <li>
-                		<a class="active" href="notification.html">
+                <li class="sub-menu">
+                		<a href="javascript:;">
                 				<i class="fa fa-bell-o"></i>
-                				<span>通知</span>
+                				<span>通知管理</span>
                 		</a>
+										<ul class="sub">
+												<li><a href="newNotification.html">新建通知</a></li>
+												<li><a class="active"  href="notification.html">查看通知</a></li>
+										</ul>
                 </li>
                 <li class="sub-menu">
-                		<a href="task.html">
-                				<i class="fa fa-tasks"></i>
-                				<span>任务</span>
-                		</a>
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>任务管理</span>
+                    </a>
+										<ul class="sub">
+												<li><a href="newTask.html">新建任务</a></li>
+												<li><a href="taskType.html">分类管理</a></li>
+												<li><a href="task.html">查看任务</a></li>
+										</ul>
                 </li>
 								<li class="sub-menu">
+										<a href="student.html">
+												<i class="fa fa-users"></i>
+												<span>学员管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="coach.html">
+												<i class="fa fa-users"></i>
+												<span>教练管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
 										<a href="javascript:;">
-												<i class="fa fa-envelope"></i>
-												<span>邮件</span>
+												<i class="fa fa-users"></i>
+												<span>管理员管理</span>
 										</a>
 										<ul class="sub">
-												<li><a href="mail.html">收件箱</a></li>
-												<li><a href="mail_compose.html">写邮件</a></li>
+												<li><a href="newAdmin.html">新增管理员</a></li>
+												<li><a href="admin.html">查看管理员</a></li>
 										</ul>
 								</li>
-                
-                <li>
-                		<a href="login.html">
-                				<i class="fa fa-user"></i>
-                				<span>退出登录</span>
-                		</a>
-                </li>
-            </ul>            
-					</div>
-        <!-- sidebar menu end-->
+								<li class="sub-menu">
+										<a href="aiticle.html">
+												<i class="fa fa-file"></i>
+												<span>文章管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="noval.html">
+												<i class="fa fa-align-left"></i>
+												<span>帖子管理</span>
+										</a>
+								</li>
+								<li>
+										<a href="login.html">
+												<i class="fa fa-user"></i>
+												<span>退出登录</span>
+										</a>
+								</li>
+            </ul>            </div>
+        <!-- 侧边菜单栏结束-->
     </div>
 </aside>
 <!--sidebar end-->

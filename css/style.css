@@ -1706,7 +1706,7 @@ select.input-sm {
     width: 150px;
 }
 .inline {
-    display: inline-block !important;
+    display: inline-block;
 }
 .v-middle {
     vertical-align: middle !important;
