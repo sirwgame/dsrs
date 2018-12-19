@@ -18,6 +18,8 @@
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>
 <script src="js/task.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/webcount.js"></script>
 <script src="laydate/laydate.js"></script>
 <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
 <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
@@ -27,7 +29,7 @@
 <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
 
 </head>
-<body>
+<body onclick="clickcount()" onbeforeunload="return postdata()">
 <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
@@ -55,26 +57,26 @@
                     <p class="">任务反馈(只显示10条)</p>
                 </li>
                 <li>
-										<div class="task-info clearfix">
-												<div class="desc pull-left">
-														<h5>黄先生&nbsp;已提交审核任务&nbsp;
-														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-												</div>
-												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-										</div>
+					<div class="task-info clearfix">
+							<div class="desc pull-left">
+									<h5>黄先生&nbsp;已提交审核任务&nbsp;
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback/taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+					</div>
                 </li>
-								<li>
-										<div class="task-info clearfix">
-												<div class="desc pull-left" style="color: yellow;">
-														<h5>钱先生&nbsp;已开始处理任务&nbsp;
-														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-												</div>
-												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-										</div>
-								</li>
-								<li>
-									<a href="/delete" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
-								</li>
+				<li>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已开始处理任务&nbsp;
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback/taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+					</div>
+				</li>
+				<li>
+					<a href="/deleteAllTaskFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+				</li>
             </ul>
         </li>
         <!-- settings end -->
@@ -90,44 +92,29 @@
                     <p>通知反馈</p>
                 </li>
                 <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;已查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已查看通知
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback/notifId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+							
+					</div>
                 </li>
-                <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;已查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;未查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
-                </li>
-								<li>
-									<a href="#" style="width: 50px;float: right;">清空</a>
-								</li>
+				<li>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已查看通知
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-002</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback/notifId=PM-002" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+							
+					</div>
+				</li>
+
+				<li>
+					<a href="/deleteAllNotifFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+				</li>
 
             </ul>
         </li>
@@ -146,8 +133,6 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>个人中心</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
                 <li><a href="login.html"><i class="fa fa-key"></i>退出</a></li>
             </ul>
         </li>
@@ -175,10 +160,10 @@
                 				<i class="fa fa-bell-o"></i>
                 				<span>通知管理</span>
                 		</a>
-										<ul class="sub">
-												<li><a href="newNotification.html">新建通知</a></li>
-												<li><a href="notification.html">查看通知</a></li>
-										</ul>
+						<ul class="sub">
+								<li><a href="newNotification.html">新建通知</a></li>
+								<li><a href="notification.html">查看通知</a></li>
+						</ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
@@ -332,28 +317,34 @@
 						<div class="agileinfo-grap">
 							<div class="agileits-box">
 								<div style="position: relative;width: 100%;height: 500px;">
-									请选择时间：
-											<select id="year" class="input-sm form-control w-sm inline v-middle" onchange="setSel(this);">
+									<header class="agileits-box-header clearfix">
+										<h3>
+											<select id="year" class="input-sm form-control w-sm inline v-middle" style="width: 75px;">
 												<option value="2018">2018</option>
 												<option value="2019">2019</option>
 											</select>&nbsp;年&nbsp;
-											<select id="2018" class="input-sm form-control w-sm inline v-middle" style="display:">
-												<option value="11">11</option>
-												<option value="12">12</option>
-											</select>
-											<select id="2019" class="input-sm form-control w-sm inline v-middle" style="display:none">
+											<select id="month" class="input-sm form-control w-sm inline v-middle" style="width: 75px;">
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
 												<option value="4">4</option>
-											</select>&nbsp;月
-								
-										<div id="chartpanel"></div>
-											<button id="b1" class="autocompare">series update</button>
-											<button id="b2" class="autocompare">chart update</button>
-											<button id="b3" class="autocompare">addSeries</button>
-											<button id="b4" class="autocompare">remove & addSeries</button>
-											<button id="b5" class="autocompare">remove, addSeries & update</button>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+											</select>&nbsp;月&nbsp;网站流量统计
+										</h3>
+									</header>
+									<div id="chartpanel"></div>
+									<button id="b1" class="autocompare">series update</button>
+									<button id="b2" class="autocompare">chart update</button>
+									<button id="b3" class="autocompare">addSeries</button>
+									<button id="b4" class="autocompare">remove & addSeries</button>
+									<button id="b5" class="autocompare">remove, addSeries & update</button>
 								</div>
 							</div>
 						</div>
@@ -379,175 +370,5 @@
 <script src="js/scripts.js"></script>
 <script src="js/jquery.slimscroll.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
-<script>
-	function setSel(obj){
-		var s=obj.value;
-		var f=document.getElementById("2018");
-		var d=document.getElementById("2019");
-		if(s=="2018"){
-		f.style.display="";
-		d.style.display="none";
-		}else if(s=="2019"){
-			f.style.display="none";
-			d.style.display="";
-		}
-	}
-</script>
-<script>
-	var options = {
-  "xAxis": [{
-      "type": "category",
-      "categories": [
-        "1日", "2日", "3日", "4日", "5日", "6日", "7日", "8日", "9日", "10日",
-        		"11日", "12日", "13日", "14日", "15日", "16日", "17日", "18日", "19日", "20日",
-        		"21日", "22日", "23日", "24日", "25日", "26日", "27日", "28日", "29日", "30日","31日"
-      ],
-      "index": 0,
-      "isX": true
-    }
-  ],
-  "series": [{
-      "name": "访客",
-      "data": [
-        65, 59, 80, 81, 56, 55, 40, 59, 45, 59
-      ],
-      "_colorIndex": 0,
-      "_symbolIndex": 0
-    },
-    {
-      "name": "学员",
-      "data": [
-        8, 57, 113, 17, 22, 248, 241, 201, 141
-      ],
-      "_colorIndex": 1,
-      "_symbolIndex": 1
-    },
-    {
-      "name": "教练",
-      "data": [
-        23, 21, 16, 8, 13, 17, 18
-      ],
-      "_colorIndex": 2,
-      "_symbolIndex": 2
-    }
-  ],
-  "yAxis": [{
-      "title": {
-        "text": "访问统计（人次）"
-      },
-      "index": 0
-    }
-  ],
-  "chart": {
-    "style": {
-      "fontFamily": "\"微软雅黑\", Arial, Helvetica, sans-serif",
-      "color": "#333",
-      "fontSize": "12px",
-      "fontWeight": "normal",
-      "fontStyle": "normal"
-    }
-  },
-  "title": {
-    "text": "2018年12月网站流量统计",
-    "x": 0
-  },
-  "subtitle": {
-    "text": "数据来源: 网站统计",
-    "x": 0
-  },
-  "tooltip": {
-    "valueSuffix": "人次"
-  },
-  "legend": {
-    "layout": "vertical",
-    "align": "right",
-    "verticalAlign": "middle"
-  },
-  "credits": {
-    "enabled": false
-  },
-  "plotOptions": {
-    "series": {
-      "animation": false
-    }
-  }
-};
-	var chart = Highcharts.chart('chartpanel', options);
-	
-	$('#b1').click(function () {
-			chart.series[0].update({
-	    	data: [29.9, 71.5, 306.4, 429.2, 144.0, 176.0, 135.6, 248.5, 216.4, 194.1, 95.6, 54.4]
-	    });
-	});
-	
-	$('#b2').click(function () {
-	    chart.update({
-	        series: [{
-	        type: 'column',
-	        name: 's1',
-	        data: [129.9, 171.5, 306.4, 429.2, 144.0, 176.0, 135.6, 248.5, 216.4, 194.1, 95.6, 54.4]
-	    	},{
-	        type: 'column',
-	        name: 's2',
-	        data: [69.9, 51.5, 176.4, 121.2, 124.0, 476.0, 935.6, 248.5, 266.4, 191.1, 99.6, 53.4]
-	    	}]
-	    });
-	});
-	
-	$('#b3').click(function () {
-	    chart.addSeries({
-	        type: 'column',
-	        name: 's3',
-	        data: [129.9, 171.5, 1106.4, 1129.2, 144.0, 176.0, 135.6, 1148.5, 216.4, 194.1, 95.6, 54.4]
-	    	});
-	});
-	
-	$('#b4').click(function () {
-			seriesData = [{
-	        type: 'column',
-	        name: 's1 new',
-	        data: [234.9, 171.5, 1106.4, 1129.2, 144.0, 176.0, 135.6, 1148.5, 216.4, 194.1, 195.6, 454.4]
-	    	}];
-	    while (chart.series.length > 0) {
-	      chart.series[0].remove(true);
-	    }
-	    for (var i = 0; i < seriesData.length; i++) {    
-	      chart.addSeries(seriesData[i]);
-	    }
-	});
-	
-	$('#b5').click(function () {
-			seriesData = [{
-	        type: 'column',
-	        name: 's1 new',
-	        data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-	    	},{
-	        type: 'column',
-	        name: 's2 new',
-	        data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-	    	},{
-	        type: 'column',
-	        name: 's3 new',
-	        data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-	    	}];
-	      
-	    var diff = chart.series.length - seriesData.length;
-	    if(diff > 0){
-	    	for (var i = chart.series.length; i > diff; i--){
-	      	chart.series[i-1].remove(true);
-	      }
-	    } else if (diff < 0){
-	    	for (var i = chart.series.length; i < seriesData.length; i ++){
-	      	chart.addSeries({});
-	      }
-	    }
-	            
-	    chart.update({
-	    	series:seriesData
-	    });
-	    
-	});
-	
-</script>
 </body>
 </html>

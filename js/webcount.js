@@ -7,14 +7,24 @@
 			localStorage.traffic_count = 1;
 		}
 	}
-	document.getElementById("count").innerHTML = localStorage.traffic_count;
 })()
 
-function c() {
+function clickcount() {
 	if (sessionStorage.count) {
 		sessionStorage.count = Number(sessionStorage.count) + 1;
 	} else {
 		sessionStorage.count = 1;
 	}
-	document.getElementById("cou").innerHTML = "你点击了本页面" + sessionStorage.count + "次";
+}
+function postdata(){
+	var traffics=localStorage.traffic_count;
+	var clicks=sessionStorage.count;
+	$.ajax({
+		type:"POST",
+		async:true,
+		url:"http://127.0.0.1:9080/countVisitors",
+		data:{"traffics":traffic},
+		dataType:"text",
+		success:function (json) {console.log(json);}
+	})
 }

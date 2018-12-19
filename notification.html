@@ -48,26 +48,26 @@
                     <p class="">任务反馈(只显示10条)</p>
                 </li>
                 <li>
-										<div class="task-info clearfix">
-												<div class="desc pull-left">
-														<h5>黄先生&nbsp;已提交审核任务&nbsp;
-														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-												</div>
-												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-										</div>
+					<div class="task-info clearfix">
+							<div class="desc pull-left">
+									<h5>黄先生&nbsp;已提交审核任务&nbsp;
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+					</div>
                 </li>
-								<li>
-										<div class="task-info clearfix">
-												<div class="desc pull-left" style="color: yellow;">
-														<h5>钱先生&nbsp;已开始处理任务&nbsp;
-														<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-												</div>
-												<a href="/delete?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-										</div>
-								</li>
-								<li>
-									<a href="/delete" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
-								</li>
+				<li>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已开始处理任务&nbsp;
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+					</div>
+				</li>
+				<li>
+					<a href="/deleteAllTaskFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+				</li>
             </ul>
         </li>
         <!-- settings end -->
@@ -83,44 +83,29 @@
                     <p>通知反馈</p>
                 </li>
                 <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;已查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已查看通知
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback?notifId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+							
+					</div>
                 </li>
-                <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;已查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                    		<div class="task-info clearfix">
-                    				<div class="desc pull-left" style="color: yellow;">
-                    						<h5>钱先生&nbsp;未查看通知</h5>
-                    				</div>
-                    				<span class="notification-pie-chart pull-right" data-percent="45">
-                    				<span class="percent"></span>
-                    				</span>
-                    		</div>
-                    </a>
-                </li>
-								<li>
-									<a href="#" style="width: 50px;float: right;">清空</a>
-								</li>
+				<li>
+					<div class="task-info clearfix">
+							<div class="desc pull-left" style="color: yellow;">
+									<h5>钱先生&nbsp;已查看通知
+									<a style="float: none;" href="task.html?taskId=PM-001">PM-002</a>&nbsp;</h5>
+							</div>
+							<a href="/deleteFeedback?notifId=PM-002" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
+							
+					</div>
+				</li>
+
+				<li>
+					<a href="/deleteAllNotifFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
+				</li>
 
             </ul>
         </li>
@@ -139,8 +124,6 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>个人中心</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
                 <li><a href="login.html"><i class="fa fa-key"></i>退出</a></li>
             </ul>
         </li>
