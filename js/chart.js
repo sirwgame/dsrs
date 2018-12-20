@@ -1,5 +1,5 @@
 $(function(){
-		var options = {
+	var options = {
 		"xAxis": [{
 			"type": "category",
 			"categories": [
@@ -74,7 +74,66 @@ $(function(){
 			}
 		}
 	};
-	var chart = Highcharts.chart('chartpanel', options);
+	var chart1 = Highcharts.chart('chartpanel', options);
+	
+	var options2 = {
+		"xAxis": [{
+			"type": "category",
+			"categories": [
+				"第一季度","第二季度","第三季度","第四季度"
+			],
+			"index": 0,
+			"isX": true
+		}],
+		"series": [{
+			"type": 'column',
+			"name": '学员数',
+			"data": [129.9, 171.5, 306.4, 429.2]
+		}, {
+			"type": 'column',
+			"name": '教练数',
+			"data": [69.9, 51.5, 176.4, 121.2]
+		}],
+		"yAxis": [{
+			"title": {
+				"text": "人数统计（人）"
+			},
+			"index": 0
+		}],
+		"chart": {
+			"style": {
+				"fontFamily": "\"微软雅黑\", Arial, Helvetica, sans-serif",
+				"color": "#333",
+				"fontSize": "12px",
+				"fontWeight": "normal",
+				"fontStyle": "normal"
+			}
+		},
+		"title": {
+			"text": null,
+		},
+		"subtitle": {
+			"text": "数据来源: 网站统计",
+			"x": 0
+		},
+		"tooltip": {
+			"valueSuffix": "人次"
+		},
+		"legend": {
+			"layout": "vertical",
+			"align": "right",
+			"verticalAlign": "middle"
+		},
+		"credits": {
+			"enabled": false
+		},
+		"plotOptions": {
+			"series": {
+				"animation": false
+			}
+		}
+	};
+	var chart2 = Highcharts.chart('chartpanel2', options2);
 	
 	$('#b1').click(function() {
 		chart.series[0].update({
@@ -149,4 +208,170 @@ $(function(){
 		});
 	
 	});
+	
+	//改变网站流量统计图--年
+	$("#year").on("change",function (){
+		var year=$("#year").val();
+		var month=$("#month").val();
+		console.log(month==12?"1":"2");
+		//获取游客数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getVisitorsCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[0].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[0].update({
+					data: [0]
+				});
+			}
+		});
+		//获取学员数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getStudentsVisitorCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[1].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[1].update({
+					data: [0]
+				});
+			}
+		});
+		//获取教练数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getCoachsVisitorCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[2].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[2].update({
+					data: [0]
+				});
+			}
+		})
+		
+	});
+	//改变网站流量统计图--月
+	$("#month").on("change",function (){
+		var year=$("#year").val();
+		var month=$("#month").val();
+		console.log(month==12?"1":"2");
+		//获取游客数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getVisitorsCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[0].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[0].update({
+					data: [0]
+				});
+			}
+		});
+		//获取学员数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getStudentsVisitorCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[1].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[1].update({
+					data: [0]
+				});
+			}
+		});
+		//获取教练数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getCoachsVisitorCount/"+year+"-"+month,
+			dataType:"json",
+			success:function(r){
+				var Data;
+				if(month==2){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					Data=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[2].update({
+					data: Data
+				});
+			},
+			error:function(r){
+				chart1.series[2].update({
+					data: [0]
+				});
+			}
+		})
+		
+	});
+	
 });
