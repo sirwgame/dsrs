@@ -8,7 +8,7 @@
 		}
 	}
 })()
-
+//点击量统计
 function clickcount() {
 	if (sessionStorage.count) {
 		sessionStorage.count = Number(sessionStorage.count) + 1;
@@ -16,6 +16,7 @@ function clickcount() {
 		sessionStorage.count = 1;
 	}
 }
+//游客统计
 function postdata(){
 	var traffics=localStorage.traffic_count;
 	var clicks=sessionStorage.count;
@@ -28,3 +29,5 @@ function postdata(){
 		success:function (json) {console.log(json);}
 	})
 }
+
+
