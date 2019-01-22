@@ -18,7 +18,17 @@
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>
 <script src="js/task.js"></script>
+<script src="js/taskF.js"></script>
+<script src="js/taskFu.js"></script>
 <script src="laydate/laydate.js"></script>
+<script src="layer/layer.js"></script>
+<style>
+	a:focus{text-decoration: none}
+	table tbody tr .selected{
+		background-color: blue;
+	}
+
+</style>
 </head>
 <body>
 <section id="container">
@@ -35,102 +45,38 @@
 </div>
 <!--logo end-->
 <div class="nav notify-row" id="top_menu">
-    <!--  notification start -->
-    <ul class="nav top-menu">
-        <!-- settings start -->
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-tasks"></i>
-                <span class="badge bg-success">1</span>
-            </a>
-            <ul class="dropdown-menu extended tasks-bar">
-                <li>
-                    <p class="">任务反馈(只显示10条)</p>
-                </li>
-                <li>
-					<div class="task-info clearfix">
-							<div class="desc pull-left">
-									<h5>黄先生&nbsp;已提交审核任务&nbsp;
-									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-							</div>
-							<a href="/deleteFeedback?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-					</div>
-                </li>
-				<li>
-					<div class="task-info clearfix">
-							<div class="desc pull-left" style="color: yellow;">
-									<h5>钱先生&nbsp;已开始处理任务&nbsp;
-									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-							</div>
-							<a href="/deleteFeedback?taskId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-					</div>
-				</li>
-				<li>
-					<a href="/deleteAllTaskFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
-				</li>
-            </ul>
-        </li>
-        <!-- settings end -->
-        <!-- notification dropdown start-->
-        <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
-                <i class="fa fa-bell-o"></i>
-                <span class="badge bg-warning">1</span>
-            </a>
-            <ul class="dropdown-menu extended tasks-bar">
-                <li>
-                    <p>通知反馈</p>
-                </li>
-                <li>
-					<div class="task-info clearfix">
-							<div class="desc pull-left" style="color: yellow;">
-									<h5>钱先生&nbsp;已查看通知
-									<a style="float: none;" href="task.html?taskId=PM-001">PM-001</a>&nbsp;</h5>
-							</div>
-							<a href="/deleteFeedback?notifId=PM-001" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-							
-					</div>
-                </li>
-				<li>
-					<div class="task-info clearfix">
-							<div class="desc pull-left" style="color: yellow;">
-									<h5>钱先生&nbsp;已查看通知
-									<a style="float: none;" href="task.html?taskId=PM-001">PM-002</a>&nbsp;</h5>
-							</div>
-							<a href="/deleteFeedback?notifId=PM-002" style="display: inline;width: 20px;" title="删除该反馈"><i class="glyphicon glyphicon-remove-circle"></i></a>
-							
-					</div>
-				</li>
-
-				<li>
-					<a href="/deleteAllNotifFeedback" style="width: 80px;margin-right: 10px;" title="清空所有反馈"><i class="glyphicon glyphicon-trash"></i>&nbsp;清空</a>
-				</li>
-
-            </ul>
-        </li>
-        <!-- notification dropdown end -->
-    </ul>
-    <!--  notification end -->
+	当前时间：
+	<div id="time" style="display: inline-block;margin-right: 40px;"></div>
+	<script type="text/javascript">
+		function time(){
+			var vWeek,vWeek_s,vDay;
+			vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var date =  new Date();
+			year = date.getFullYear();
+			month = date.getMonth() + 1;
+			day = date.getDate();
+			hours = date.getHours();
+			minutes = date.getMinutes();
+			seconds = date.getSeconds();
+			vWeek_s = date.getDay();
+			document.getElementById("time").innerHTML = year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes +":" + seconds + "\t" + vWeek[vWeek_s] ;
+		};
+		setInterval("time()",1000);
+	</script>
+	<iframe width="430" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=1&icon=1&wind=1&num=2&site=12"></iframe>
 </div>
 <div class="top-nav clearfix">
     <!--搜索和管理员信息-->
     <ul class="nav pull-right top-menu">
         <!-- 管理员登录开始-->
         <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <a class="dropdown-toggle" href="login.html" style="width: 100px;">
                 <img alt="" src="images/2.png">
-                <span class="username">王先生</span>
-                <b class="caret"></b>
+                <span class="username" style="margin-left: 9px;">退出	</span>
             </a>
-            <ul class="dropdown-menu extended logout">
-                <li><a href="login.html"><i class="fa fa-key"></i>退出</a></li>
-            </ul>
         </li>
         <!-- 管理员登录结束 -->
-       
     </ul>
-    <!--search & user info end-->
 </div>
 </header>
 <!--header end-->
@@ -147,23 +93,12 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                		<a href="javascript:;">
-                				<i class="fa fa-bell-o"></i>
-                				<span>通知管理</span>
-                		</a>
-										<ul class="sub">
-												<li><a href="newNotification.html">新建通知</a></li>
-												<li><a href="notification.html">查看通知</a></li>
-										</ul>
-                </li>
-                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-tasks"></i>
                         <span>任务管理</span>
                     </a>
 										<ul class="sub">
 												<li><a href="newTask.html">新建任务</a></li>
-												<li><a href="taskType.html">分类管理</a></li>
 												<li><a class="active" href="task.html">查看任务</a></li>
 										</ul>
                 </li>
@@ -180,31 +115,15 @@
 										</a>
 								</li>
 								<li class="sub-menu">
-										<a href="javascript:;">
-												<i class="fa fa-users"></i>
-												<span>管理员管理</span>
-										</a>
-										<ul class="sub">
-												<li><a href="newAdmin.html">新增管理员</a></li>
-												<li><a href="admin.html">查看管理员</a></li>
-										</ul>
-								</li>
-								<li class="sub-menu">
 										<a href="aiticle.html">
 												<i class="fa fa-file"></i>
 												<span>文章管理</span>
 										</a>
 								</li>
 								<li class="sub-menu">
-										<a href="noval.html">
-												<i class="fa fa-align-left"></i>
-												<span>帖子管理</span>
-										</a>
-								</li>
-								<li>
-										<a href="login.html">
-												<i class="fa fa-user"></i>
-												<span>退出登录</span>
+										<a href="feedback.html">
+												<i class="fa fa-pencil-square"></i>
+												<span>举报管理</span>
 										</a>
 								</li>
             </ul>            </div>
@@ -222,154 +141,42 @@
 		    </div>
 		    <div class="row w3-res-tb">
 		      <div class="col-sm-5 m-b-xs" style="width: 70%;">
-		        <select class="input-sm form-control w-sm inline v-middle">
-		          <option value="1">默认排序</option>
+		        <select id="sp_type" class="input-sm form-control w-sm inline v-middle">
+							<option value="ASC-taskId">默认排序</option>
 							<option value="" disabled>————————</option>
-							<option value="2">按任务编号升序</option>
-							<option value="3">按任务编号降序</option>
+							<option value="ASC-taskId">按任务编号升序</option>
+							<option value="DESC-taskId">按任务编号降序</option>
 							<option value="" disabled>————————</option>
-		          <option value="2">按任务名称升序</option>
-		          <option value="3">按任务名称降序</option>
+							<option value="ASC-taskName">按任务名称升序</option>
+							<option value="DESC-taskName">按任务名称降序</option>
 							<option value="" disabled>————————</option>
-							<option value="4">按任务分类升序</option>
-							<option value="5">按任务分类降序</option>
+							<option value="ASC-taskType">按任务分类升序</option>
+							<option value="DESC-taskType">按任务分类降序</option>
 							<option value="" disabled>————————</option>
-							<option value="2">按任务状态升序</option>
-							<option value="3">按任务状态降序</option>
+							<option value="ASC-taskStatus">按任务状态升序</option>
+							<option value="DESC-taskStatus">按任务状态降序</option>
 		        </select>
 		        <!-- <button class="btn btn-sm btn-default" title="分类查询">分类查询</button> -->
-						<button class="btn btn-sm btn-default" data-toggle="modal" data-target="#newtype" title="添加新分类">添加新分类</button>
-						<button class="btn btn-sm btn-default" data-toggle="modal" data-target="#newtask"  title="添加新任务">添加新任务</button>
-						<button class="btn btn-sm btn-default" title="删除选中任务">删除选中任务</button>
-						<button class="btn btn-sm btn-default" title="删除全部任务">删除全部任务</button>
-						<!-- 添加新分类开始 -->
-						<div class="modal fade" id="newtype" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-										<div class="modal-content">
-												<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-														<h4 class="modal-title" id="myModalLabel">添加新分类</h4>
-												</div>
-												<div id="body" class="modal-body">
-													<table class="table table-striped b-t b-light table2">
-														<tr>
-															<td width="120px">分类名称</td>
-															<td><input type="text" class="input-sm form-control" onkeyup="checkLenforType(this)" value=""></td>
-															<td><div style="float: right;">不得超过8个文字</div></td>
-														</tr>
-													</table>
-												</div>
-												<div class="modal-footer">
-														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-														<button type="button" class="btn btn-primary">确定</button>
-												</div>
-										</div>
-								</div>
-						</div>
-						<!-- 添加新分类结束 -->
-						
-						<!-- 添加新任务开始 -->
-						<div class="modal fade" id="newtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-										<div class="modal-content">
-												<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-														<h4 class="modal-title" id="myModalLabel">添加新任务</h4>
-												</div>
-												<div id="body" class="modal-body">
-													<table class="table table-striped b-t b-light table2">
-														<tr>
-															<td width="120px">任务编号</td>
-															<td><input type="text" class="input-sm form-control" value=""></td>
-														</tr>
-														<tr>
-															<td>任务名称</td>
-															<td>
-																<span class="text-ellipsis">
-																	<input type="text" class="input-sm form-control" value="">
-																</span>
-															</td>
-														</tr>
-														<tr>
-															<td>任务分类</td>
-															<td>
-																<span class="text-ellipsis">
-																	<select class="input-sm form-control w-sm inline v-middle">
-																		<option value="1">学员管理</option>
-																		<option value="2">教练管理</option>
-																		<option value="3">管理员管理</option>
-																	</select>
-																</span>
-															</td>
-														</tr>
-														<tr>
-															<td>任务时间</td>
-															<td>
-																<span class="text-ellipsis">
-																	<div class="input-group input-daterange" style="margin-bottom: 0;">
-																		<input type="text" class="form-control" placeholder="请选择日期" id="test1">
-																		<div class="input-group-addon">~</div>
-																		<input type="text" class="form-control" placeholder="请选择日期" id="test2">
-																	</div>
-																	<script type="text/javascript">
-																		//执行一个laydate实例
-																		laydate.render({
-																			elem: '#test1',//指定元素
-																			type: 'datetime',
-																			min: 'new Date()'
-																		});
-																		laydate.render({
-																			elem: '#test2',//指定元素
-																			type: 'datetime',
-																			min: 'new Date()'
-																		});
-																	</script>  
-																</span>
-															</td>
-														</tr>
-														
-														<tr>
-															<td>持续时间</td>
-															<td>
-																<span class="text-ellipsis">
-																	<input type="text" style="width: 60px;display: inline;margin-right: 10px;" class="input-sm form-control" value="" maxlength="1" readonly>天
-																</span>
-															</td>
-														</tr>
-														<tr>
-															<td>任务说明</td>
-															<td>
-																<textarea  onkeyup="checkLen(this)" style="resize:none;width: 418px;height: 90px;">12</textarea>
-																<div style="float: right;">您最多可以输入100个文字</div>
-															</td>
-														</tr>
-													</table>
-												</div>
-												<div class="modal-footer">
-														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-														<button type="button" class="btn btn-primary">添加</button>
-												</div>
-										</div>
-								</div>
-						</div>
-						<!-- 添加新任务结束 -->
+						<button class="btn btn-sm btn-default" onclick="javascript:window.location.href='newTask.html'" title="添加新任务">添加新任务</button>
+						<button class="btn btn-sm btn-default" onclick="deleteTasks()" title="删除选中任务">删除选中任务</button>
+						<button class="btn btn-sm btn-default" onclick="deleteAll()" title="删除全部任务">删除全部任务</button>
 		      </div>
 		      <div class="col-sm-3" style="float: right;">
 		        <div class="input-group">
-		          <input type="text" class="input-sm form-control" placeholder="输入关键词搜素">
+		          <input id="search_name" type="text" class="input-sm form-control" placeholder="输入关键词搜素">
 		          <span class="input-group-btn">
-		            <button class="btn btn-sm btn-default" type="button" title="搜索">搜索</button>
+		            <button class="btn btn-sm btn-default" type="button" onclick="searchTask()" title="搜索">搜索</button>
 		          </span>
 		        </div>
 		      </div>
 		    </div>
 		    <div class="table-responsive">
-		      <table class="table table-striped b-t b-light">
+		      <table id="tab" class="table table-striped b-t b-light" style="text-align: center;">
 		        <thead>
 		          <tr>
 		            <td style="font-weight: bold;">
 		              <label class="i-checks m-b-none">
-		                <input type="checkbox"><i></i>
+		                <input id="allselect" type="checkbox" onclick="selectTAll()" title="全选当前页">
 		              </label>
 		            </td>
 		            <td style="font-weight: bold;">任务编号</td>
@@ -380,179 +187,288 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		          <tr>
-		            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-		            <td>PM-001</td>
-		            <td>测试用例1</td>
-								<td>学员管理</td>
-		            <td>
-										<span class="text-ellipsis">
-											<a href="javascript:void(0)" onclick="changeStatus()" style="text-decoration : none"><span id="status" class="label label-default">新任务</span></a>
-										</span>
-								</td>
-		            <td>
-									<a href="javascript:void(0)" class="active" ui-toggle-class="" title="任务详情" style="margin-right: 10px;" data-toggle="modal" data-target="#detail"><i class="glyphicon glyphicon-list-alt"></i></a>
-		              <a href="javascript:void(0)" onclick="value()" class="active" ui-toggle-class="" title="编辑任务" style="margin-right: 10px;" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-edit"></i></a>
-									<a id="delete" href="" class="active" ui-toggle-class="" title="删除任务"><i class="glyphicon glyphicon-trash"></i></a>
-									<!-- 附加模态框开始(detail) -->
-									<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-											<div class="modal-dialog">
-													<div class="modal-content">
-															<div class="modal-header">
-																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																	<h4 class="modal-title" id="myModalLabel">任务详情</h4>
-															</div>
-															<div id="body" class="modal-body">
-																<table class="table table-striped b-t b-light">
-
-																	<tr>
-																		<td width="120px">任务编号</td>
-																		<td>PM-001</td>
-																	</tr>
-																	<tr>
-																		<td>任务名称</td>
-																		<td><span class="text-ellipsis">测试用例1</span></td>
-																	</tr>
-																	<tr>
-																		<td>任务分类</td>
-																		<td><span class="text-ellipsis">学员管理</span></td>
-																	</tr>
-																	<tr>
-																		<td>创建时间</td>
-																		<td><span class="text-ellipsis">2018-11-28</span></td>
-																	</tr>
-																	<tr>
-																		<td>结束时间</td>
-																		<td><span class="text-ellipsis">2018-11-29</span></td>
-																	</tr>
-																	<tr>
-																		<td>任务时间</td>
-																		<td><span class="text-ellipsis">1天</span></td>
-																	</tr>
-																	<tr>
-																		<td>任务状态</td>
-																		<td><span class="text-ellipsis"><span class="label label-info">处理中</span></span></td>
-																	</tr>
-																	<tr>
-																		<td>任务说明</td>
-																		<td>这是一个测试用例这是一个测试用例这是一个测试用例这是一个测试用例
-																		这是一个测试用例这是一个测试用例这是一个测试用例这是一个测试用例这是一个测试用例</td>
-																	</tr>
-																</table>
-															</div>
-															<div class="modal-footer">
-																	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-															</div>
-													</div>
-											</div>
-									</div>
-									<!-- 附加模态框结束(detail) -->
-									
-									<!-- 附加模态框开始(edit) -->
-									<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-											<div class="modal-dialog">
-													<div class="modal-content">
-															<div class="modal-header">
-																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																	<h4 class="modal-title" id="myModalLabel">编辑任务</h4>
-															</div>
-															<div id="body" class="modal-body">
-																<table class="table table-striped b-t b-light table2">
-																	<tr>
-																		<td width="120px">任务编号</td>
-																		<td><input type="text" class="input-sm form-control" value=""></td>
-																	</tr>
-																	<tr>
-																		<td>任务名称</td>
-																		<td>
-																			<span class="text-ellipsis">
-																				<input type="text" class="input-sm form-control" value="">
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>任务分类</td>
-																		<td>
-																			<span class="text-ellipsis">
-																				<select class="input-sm form-control w-sm inline v-middle">
-																					<option value="1">学员管理</option>
-																					<option value="2">教练管理</option>
-																					<option value="3">管理员管理</option>
-																				</select>
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>任务时间</td>
-																		<td>
-																			<span class="text-ellipsis">
-																				<div class="input-group input-daterange" style="margin-bottom: 0;">
-																					<input type="text" class="form-control" placeholder="请选择日期" id="test1">
-																					<div class="input-group-addon">~</div>
-																					<input type="text" class="form-control" placeholder="请选择日期" id="test2">
-																				</div>
-																				<script type="text/javascript">
-																					//执行一个laydate实例
-																					laydate.render({
-																						elem: '#test1',//指定元素
-																						type: 'date',
-																						min: 'new Date()'
-																					});
-																					laydate.render({
-																						elem: '#test2',//指定元素
-																						type: 'date',
-																						min: 'new Date()'
-																					});
-																				</script>  
-																			</span>
-																		</td>
-																	</tr>
-																	
-																	<tr>
-																		<td>持续时间</td>
-																		<td>
-																			<span class="text-ellipsis">
-																				<input type="text" style="width: 60px;display: inline;margin-right: 10px;" class="input-sm form-control" value="" maxlength="1" readonly>天
-																			</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>任务说明</td>
-																		<td>
-																			<textarea  onkeyup="checkLen(this)" style="resize:none;width: 418px;height: 90px;">12</textarea>
-																			<div style="float: right;">您最多可以输入100个文字</div>
-																		</td>
-																	</tr>
-																</table>
-															</div>
-															<div class="modal-footer">
-																	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-																	<button type="button" class="btn btn-primary">修改</button>
-															</div>
-													</div>
-											</div>
-									</div>
-									<!-- 附加模态框结束(edit) -->
-		            </td>
-		          </tr>
-		          
+					<!--创建一个空行 -->
+					<tr id="dynamicCreate">
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+					</tr>		          
 		        </tbody>
 		      </table>
+			<!-- 附加模态框开始(detail) -->
+			<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">任务详情</h4>
+									</div>
+									<div id="body" class="modal-body">
+										<table class="table table-striped b-t b-light">
+
+											<tr>
+												<td width="120px">任务编号</td>
+												<td><span id="s_number" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>任务名称</td>
+												<td><span id="s_name" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>任务分类</td>
+												<td><span id="s_s_type" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>创建时间</td>
+												<td><span id="s_date" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>结束时间</td>
+												<td><span id="s_endDate" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>任务时间</td>
+												<td><span id="s_lasttime" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>任务状态</td>
+												<td><span id="s_t_status" class="text-ellipsis"></span></td>
+											</tr>
+											<tr>
+												<td>任务说明</td>
+												<td><span id="s_textarea" class="text-ellipsis"></span></td>
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									</div>
+							</div>
+					</div>
+			</div>
+			<!-- 附加模态框结束(detail) -->
+			
+			<!-- 附加模态框开始(edit) -->
+			<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">编辑任务</h4>
+									</div>
+									<div id="body" class="modal-body">
+										<table class="table table-striped b-t b-light table2">
+											<tr>
+												<td width="120px">
+													任务编号
+													<span id="number_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="number_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<input id="number" type="text" maxlength="3" onfocus="hidenText()" style="display: inline-block;width: 100px;cursor: not-allowed;" class="input-sm form-control" value="" readonly="readonly">
+												</td>
+											</tr>
+											<tr>
+												<td>
+													任务名称
+													<span id="name_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="name_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<span class="text-ellipsis">
+														<input id="t_name" type="text" maxlength="8" style="display: inline-block;width: 200px;" class="input-sm form-control" value="">
+														<div style="float: right;">您最多可以输入8个文字</div>
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>任务分类
+													<span id="type_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="type_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<span class="text-ellipsis">
+														<input id="t_type" type="text" style="display: inline-block;width: 100px;cursor: not-allowed;" class="input-sm form-control" value="" readonly="readonly">
+														<select id="s_type" class="input-sm form-control w-sm inline v-middle" onload="refreshType()" onchange="getTypeToInput()">
+															
+														</select>
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>任务时间
+													<span id="date_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="date_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<span class="text-ellipsis">
+														<div class="input-group input-daterange" style="margin-bottom: 0;">
+															<input type="text" class="form-control" style="width: 200px;" placeholder="请选择日期" id="test1">
+														</div>
+														<div style="float: right;">结束时间不能小于开始时间</div>
+														<input type="text" id="date" style="display: none;">
+														<input type="text" id="endDate" style="display: none;">
+														<script type="text/javascript">
+															laydate.render({
+																elem: '#test1',
+																min: "new Date()",
+																range: true,
+																done:function(value, date, endDate) {
+																	//{year: 2017, month: 8, date: 18},
+																	var date1=date.year+"-"+date.month+"-"+date.date;
+																	var date2=endDate.year+"-"+endDate.month+"-"+endDate.date;
+																	var d=dateDiff(date1,date2);
+																	if(d<=9){
+																		$("#date").val(date1);
+																		$("#endDate").val(date2);
+																		$("#lasttime").val(d+1);
+																	}else{
+																		layer.msg("单个任务最长时间不能超过9天！");
+																	}
+																}
+															});
+															function dateDiff(date1, date2){     
+																var type1 = typeof date1, type2 = typeof date2;     
+																if(type1 == 'string')     
+																	date1 = stringToTime(date1);     
+																else if(date1.getTime)     
+																	date1 = date1.getTime();     
+																if(type2 == 'string')     
+																	date2 = stringToTime(date2);     
+																else if(date2.getTime)     
+																	date2 = date2.getTime(); 
+																return (date2 - date1) / 1000 / 60 / 60 / 24;//除1000是毫秒，不加是秒 
+															} 
+															//字符串转成Time(dateDiff)所需方法 
+															function stringToTime(string){     
+																var f = string.split(' ', 2);     
+																var d = (f[0] ? f[0] : '').split('-', 3);     
+																var t = (f[1] ? f[1] : '').split(':', 3);     
+																return (new Date(     
+																parseInt(d[0], 10) || null,     
+																(parseInt(d[1], 10) || 1)-1,     
+																parseInt(d[2], 10) || null,     
+																parseInt(t[0], 10) || null,    
+																parseInt(t[1], 10) || null,     
+																parseInt(t[2], 10) || null)).getTime(); 
+															}
+														</script>  
+													</span>
+												</td>
+											</tr>
+											
+											<tr>
+												<td>持续时间
+													<span id="lasttime_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="lasttime_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<span class="text-ellipsis">
+														<input id="lasttime" type="text" style="width: 60px;display: inline;margin-right: 10px;cursor: not-allowed;" class="input-sm form-control" value="" maxlength="1" readonly="readonly">天
+													</span>
+													<div style="float: right;">系统自动计算，无需手动输入</div>
+												</td>
+											</tr>
+											<tr>
+												<td>任务说明
+													<span id="textarea_exist" style="display: none;"><i class="glyphicon glyphicon-ok-sign" style="color: limegreen;"></i></span>
+													<span id="textarea_empty" style="display: none;"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></span>
+												</td>
+												<td>
+													<textarea id="textarea" maxlength="100" style="resize:none;width: 100%;height: 65px;"></textarea>
+													<div style="float: right;">您最多可以输入100个文字</div>
+												</td>
+											</tr>
+										</table>
+										<div style="font-size: 0.9em;color: #999;">说明：部分情况下 任务分类 会出现默认值情况，请以左侧输入框为主。</div>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-primary" onclick="updateTask()">修改</button>
+									</div>
+							</div>
+					</div>
+			</div>
+			<!-- 附加模态框结束(edit) -->
+			
+			<!-- 下发任务开始 -->
+			<div class="modal fade" id="send" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">下发任务</h4>
+											<span id="send_id" style="display: none;"></span>
+									</div>
+									<div id="body" class="modal-body">
+										<table class="table table-striped b-t b-light table2">
+											<tr>
+												<td width="200px">请输入教练姓名</td>
+												<td>
+													<div class="input-group" style="margin-bottom: 0;">
+														<input id="coachName" type="text" style="width: 112px;" class="form-control" placeholder="教练姓名" aria-describedby="basic-addon2">
+														<span class="input-group-addon" id="basic-addon2" style="width: 0;"><a href="javascript:void(0)" onclick="searchCoach()"><i class="glyphicon glyphicon-search"></i></a></span>
+														<span class="input-group-addon" style="width: 0;background-color: #fff;border: none;"><a href="javascript:void(0)" onclick="viewList()" id="viewList">查看教练列表</a></span>
+													</div>
+												</td>
+											</tr>
+											<tr id="coach_tr1" style="display: none;">
+												<td colspan="2">
+													<div class="table-cont" >
+														<table id="coach_tab" class="table table-striped b-t b-light" style="text-align: center;">
+															<thead>
+																<tr>
+																	<td style="font-weight: bold;">选择教练</td>
+																	<td style="font-weight: bold;">教练编号</td>
+																	<td style="font-weight: bold;">教练姓名</td>
+																	<td style="font-weight: bold;">教练职位</td>
+																</tr>
+															</thead>
+															<tbody>
+																<!--创建一个空行 -->
+																<tr id="dynamicCoach">
+																	<td class="td07"></td>
+																	<td class="td07"></td>
+																	<td class="td07"></td>
+																	<td class="td07"></td>
+																</tr>
+															</tbody>
+														</table>
+														<span id="zongji_coach" style="display: none;">0</span>
+													</div>
+												</td>
+											</tr>
+											<tr id="coach_tr2" style="display: none;">
+												<td>该任务将下发给教练：</td>
+												<td>
+													<div id="c_html"></div>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-primary" onclick="addType()">下发</button>
+									</div>
+							</div>
+					</div>
+			</div>
+			<!-- 下发任务结束 -->
 		    </div>
 		    <footer class="panel-footer">
 		      <div class="row">
 		        
 		        <div class="col-sm-5">
-		          <small class="text-muted inline m-t-sm m-b-sm">当前页共1条数据</small>
+		          <small class="text-muted inline m-t-sm m-b-sm">当前页共<span id="zongji">0</span>条数据</small>
+				  <span id="dijiye" style="display: none"></span>
+				  <span id="total" style="display: none"></span>
 		        </div>
 		        <div class="col-sm-7 text-right text-center-xs">                
-		          <ul class="pagination pagination-sm m-t-none m-b-none">
-		            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-		            <li><a href="">1</a></li>
-		            <li><a href="">2</a></li>
-		            <li><a href="">3</a></li>
-		            <li><a href="">4</a></li>
-		            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+		          <ul class="pagination pagination-sm m-t-none m-b-none" id="yema">
+		            
 		          </ul>
 		        </div>
 		      </div>
@@ -574,6 +490,7 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/pagination.js"></script>
 <script src="js/jquery.slimscroll.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<head>
+<title>管理员后台管理</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font.css" type="text/css"/>
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery2.0.3.min.js"></script>
+<script src="js/artical.js"></script>
+<script src="js/coachF.js"></script>
+<script src="laydate/laydate.js"></script>
+<script src="layer/layer.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+    <a href="index.html" class="logo">
+        超级管理员
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+<div class="nav notify-row" id="top_menu">
+	当前时间：
+	<div id="time" style="display: inline-block;margin-right: 40px;"></div>
+	<script type="text/javascript">
+		function time(){
+			var vWeek,vWeek_s,vDay;
+			vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var date =  new Date();
+			year = date.getFullYear();
+			month = date.getMonth() + 1;
+			day = date.getDate();
+			hours = date.getHours();
+			minutes = date.getMinutes();
+			seconds = date.getSeconds();
+			vWeek_s = date.getDay();
+			document.getElementById("time").innerHTML = year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes +":" + seconds + "\t" + vWeek[vWeek_s] ;
+		};
+		setInterval("time()",1000);
+	</script>
+	<iframe width="430" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=1&icon=1&wind=1&num=2&site=12"></iframe>
+</div>
+<div class="top-nav clearfix">
+    <!--搜索和管理员信息-->
+    <ul class="nav pull-right top-menu">
+        <!-- 管理员登录开始-->
+        <li class="dropdown">
+            <a class="dropdown-toggle" href="login.html" style="width: 100px;">
+                <img alt="" src="images/2.png">
+                <span class="username" style="margin-left: 9px;">退出	</span>
+            </a>
+        </li>
+        <!-- 管理员登录结束 -->
+    </ul>
+</div>
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- 侧边菜单栏开始-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>仪表板</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-users"></i>
+                        <span>任务管理</span>
+                    </a>
+										<ul class="sub">
+												<li><a href="newTask.html">新建任务</a></li>
+												<li><a class="active" href="task.html">查看任务</a></li>
+										</ul>
+                </li>
+								<li class="sub-menu">
+										<a href="student.html">
+												<i class="fa fa-users"></i>
+												<span>文章管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="coach.html">
+												<i class="fa fa-users"></i>
+												<span>文章管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="aiticle.html">
+												<i class="fa fa-file"></i>
+												<span>文章管理</span>
+										</a>
+								</li>
+								<li class="sub-menu">
+										<a href="noval.html">
+												<i class="fa fa-align-left"></i>
+												<span>帖子管理</span>
+										</a>
+								</li>
+            </ul>            </div>
+        <!-- 侧边菜单栏结束-->
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+	<section class=" wrapper">
+		<div class="table-agile-info" style="display: ;">
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      文章管理界面
+		    </div>
+		    <div class="row w3-res-tb">
+		      <div class="col-sm-5 m-b-xs" style="width: 70%;">
+		        <select id="stu_type" class="input-sm form-control w-sm inline v-middle" onchange="stuChange()">
+							<option value="ASC-coachID">默认排序</option>
+							<option value="" disabled>————————</option>
+							<option value="ASC-coachName">按文章姓名升序</option>
+							<option value="DESC-coachName">按文章姓名降序</option>
+							<option value="" disabled>————————</option>
+							<option value="ASC-coachLevel">按文章评分升序</option>
+							<option value="DESC-coachLevel">按文章评分降序</option>
+							<option value="" disabled>————————</option>
+							<option value="ASC-coachAge">按文章年龄升序</option>
+							<option value="DESC-coachAge">按文章年龄降序</option>
+		        </select>
+						<button class="btn btn-sm btn-default" onclick="deleteStu()" title="删除选中文章">删除选中文章</button>
+						<button class="btn btn-sm btn-default" onclick="deleteAll()" title="删除全部文章">删除全部文章</button>
+						<button class="btn btn-sm btn-default" data-toggle="modal" data-target="#choose" title="可根据多条件筛选文章">筛选文章(高级)</button>
+						<a href="javascript:void(0)" onclick="clearChoose()" style="display: none;" id="clearChoose">(清除筛选)</a>
+						<!-- 筛选开始 -->
+						<div class="modal fade" id="choose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+										<div class="modal-content">
+												<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+														<h4 class="modal-title" id="myModalLabel">筛选文章</h4>
+												</div>
+												<div id="body" class="modal-body">
+													<table class="table table-striped b-t b-light table2">
+														<tr>
+															<td width="120px">年龄范围</td>
+															<td>
+																<input type="text" style="width: 44px;display: inline-block;" id="minAge" class="input-sm form-control" maxlength="3" value="">
+																&nbsp;~&nbsp;
+																<input type="text" style="width: 44px;display: inline-block;" id="maxAge" onblur="maxAge()" class="input-sm form-control" maxlength="3" value="">
+															</td>
+															<td><div style="float: right;">(可选项)</div></td>
+														</tr>
+														<tr>
+															<td width="120px">性别选择</td>
+															<td>
+																<select id="sex_type" class="input-sm form-control w-sm inline v-middle">
+																	<option value="0">请选择</option>
+																	<option value="男">男</option>
+																	<option value="女">女</option>
+																</select>
+															</td>
+															<td><div style="float: right;">(可选项)</div></td>
+														</tr>
+														<tr>
+															<td width="120px">文章评分范围</td>
+															<td>
+																<input type="text" style="width: 44px;display: inline-block;" id="minScore" class="input-sm form-control" maxlength="2" value="">
+																&nbsp;~&nbsp;
+																<input type="text" style="width: 44px;display: inline-block;" id="maxScore" onblur="maxScore()" class="input-sm form-control" maxlength="2" value="">
+															</td>
+															<td><div style="float: right;">(可选项)</div></td>
+														</tr>
+														<td width="120px">文章科目</td>
+														<td>
+															<select id="subject_type" class="input-sm form-control w-sm inline v-middle">
+																<option value="0">请选择</option>
+																<option value="理论文章">理论文章</option>
+																<option value="科目一">科目一</option>
+																<option value="科目二">科目二</option>
+															</select>
+														</td>
+														<td><div style="float: right;">(可选项)</div></td>
+													</table>
+												</div>
+												<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+														<button type="button" class="btn btn-primary" onclick="chooseStu()">确定</button>
+												</div>
+										</div>
+								</div>
+						</div>
+						<!-- 筛选结束 -->
+		      </div>
+		      <div class="col-sm-3" style="float: right;">
+		        <div class="input-group">
+		          <input id="search_name" type="text" class="input-sm form-control" title="输入文章姓名搜素">
+		          <span class="input-group-btn">
+		            <button class="btn btn-sm btn-default" type="button" onclick="searchStu()" title="搜索">搜索</button>
+		          </span>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="table-responsive">
+		      <table id="tab" class="table table-striped b-t b-light" style="text-align: center;">
+		        <thead>
+		          <tr>
+		            <td style="font-weight: bold;">
+		              <label class="i-checks m-b-none">
+		                <input id="allselect" type="checkbox" onclick="selectTAll()" title="全选当前页">
+		              </label>
+		            </td>
+		            <td style="font-weight: bold;">文章编号</td>
+								<td style="font-weight: bold;">文章标题</td>
+		            <td style="font-weight: bold;">文章分类</td>
+								<td style="font-weight: bold;">文章作者</td>
+								<td style="font-weight: bold;">文章作者</td>
+								<td style="font-weight: bold;">原作者</td>
+								<td style="font-weight: bold;">转载地址</td>
+								<td style="font-weight: bold;">发表日期</td>
+<!-- 		            <td style="font-weight: bold;">其他操作</td> -->
+		          </tr>
+		        </thead>
+		        <tbody>
+					<!--创建一个空行 -->
+					<tr id="dynamicCreate">
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+						<td class="td07"></td>
+<!-- 						<td class="td07"></td> -->
+					</tr>		          
+		        </tbody>
+		      </table>
+			<!-- 附加模态框开始(subject) -->
+			<div class="modal fade" id="subject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel stu_id"></h4>
+									</div>
+									<div id="body" class="modal-body">
+										<table class="table table-striped b-t b-light">
+											<tr>
+												<td style="width: 166px;">文章科目选择</td>
+												<td>
+													<select id="coach_subject" class="input-sm form-control w-sm inline v-middle" onchange="subjectChange()">
+														<option value="理论文章">理论文章</option>
+														<option value="科目二">科目二</option>
+														<option value="科目三">科目三</option>
+													</select>
+													<span id="sub_id" style="display: none;"></span>
+													<span id="bef_sub" style="display: none;"></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 166px;">说明</td>
+												<td><span id="subject_detail">请先选择科目</span></td>
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-primary" onclick="change_sub()">更改</button>
+									</div>
+							</div>
+					</div>
+			</div>
+			<!-- 附加模态框结束(subject) -->
+			
+			<!-- 附加模态框开始(level) -->
+			<div class="modal fade" id="level" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" style="width: 800px;">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel coach_id"></h4>
+									</div>
+									<div id="body" class="modal-body">
+										<table class="table table-striped b-t b-light table2" style="text-align: center;">
+											<tr>
+												<td>评分星级</td>
+												<td>评分人数</td>
+												<td>评分说明</td>
+											</tr>
+											<tr>
+												<td style="font-size: 18px;">★☆☆☆☆</td>
+												<td>
+													<span id="one_star"></span>
+												</td>
+												<td style="text-align: left;">
+													1、普通话很差；语言组织很差；口头禅和脏话不离嘴。<br>
+													2、吹口哨、搔耳等影响文章形象的小动作经常出现。<br>
+													3、完全不能调动学员的参与积极性。<br>
+													4、完全不能很好的控场，完全不能保持学车过程中的氛围是积极踊跃向上的。<br>
+													5、完全不讲解安全注意事项；完全不能够及时避免安全事故。<br>
+													6、学车过程中不讲解每一个步骤，耐心很差。
+												</td>
+											</tr>
+											<tr>
+												<td style="font-size: 18px;">★★☆☆☆</td>
+												<td>
+													<span id="two_star"></span>
+												</td>
+												<td style="text-align: left;">
+													1、普通话较差；语言组织较差；经常会有口头禅和脏话。<br>
+													2、经常出现吹口哨、搔耳等影响文章形象的小动作。<br>
+													3、不能调动学员的参与积极性。<br>
+													4、不能很好的控场，不能保持学车过程中的氛围是积极踊跃向上的。<br>
+													5、不怎么注意讲解安全注意事项；偶尔能够及时避免安全事故。<br>
+													6、学车过程中不怎么讲解每一个步骤，耐心较差。
+												</td>
+											</tr>
+											<tr>
+												<td style="font-size: 18px;">★★★☆☆</td>
+												<td>
+													<span id="three_star"></span>
+												</td>
+												<td style="text-align: left;">
+													1、普通话一般；语言组织一般；经常会有口头禅和脏话。<br>
+													2、经常出现吹口哨、搔耳等影响文章形象的小动作。<br>
+													3、偶尔能调动学员的参与积极性。<br>
+													4、偶尔能很好的控场，偶尔能保持学车过程中的氛围是积极踊跃向上的。<br>
+													5、不怎么注意讲解安全注意事项；偶尔能够及时避免安全事故。<br>
+													6、学车过程中基本能够讲解每一个步骤。
+												</td>
+											</tr>
+											<tr>
+												<td style="font-size: 18px;">★★★★☆</td>
+												<td>
+													<span id="four_star"></span>
+												</td>
+												<td style="text-align: left;">
+													1、普通话一般；语言组织一般；偶尔会有口头禅和脏话。<br>
+													2、偶尔出现吹口哨、搔耳等影响文章形象的小动作。<br>
+													3、基本能调动学员的参与积极性。<br>
+													4、基本能很好的控场，保持学车过程中的氛围是积极踊跃向上的。<br>
+													5、较详细讲解安全注意事项；基本能够及时发现并避免安全事故。<br>
+													6、学车过程中基本能够细节讲解每一个步骤，有耐心。
+												</td>
+											</tr>
+											<tr>
+												<td style="font-size: 18px;">★★★★★</td>
+												<td>
+													<span id="five_star"></span>
+												</td>
+												<td style="text-align: left;">
+													1、普通话标准；语言组织流畅；没有说过口头禅和脏话。<br>
+													2、不出现吹口哨、搔耳等影响文章形象的小动作。<br>
+													3、能调动学员的参与积极性。<br>
+													4、能很好的控场，保持学车过程中的氛围是积极踊跃向上的。<br>
+													5、详细讲解安全注意事项；能够及时发现并避免安全事故。<br>
+													6、学车过程中细节讲解每一个步骤，有耐心。
+												</td>
+											</tr>
+											<tr>
+												<td>总评分</td>
+												<td>
+													<span id="result"></span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									</div>
+							</div>
+					</div>
+			</div>
+			<!-- 附加模态框结束(level) -->
+		    </div>
+		    <footer class="panel-footer">
+		      <div class="row">
+		        
+		        <div class="col-sm-5">
+		          <small class="text-muted inline m-t-sm m-b-sm">当前页共<span id="zongji">0</span>条数据</small>
+				  <span id="dijiye" style="display: none"></span>
+				  <span id="total" style="display: none"></span>
+		        </div>
+		        <div class="col-sm-7 text-right text-center-xs">                
+		          <ul class="pagination pagination-sm m-t-none m-b-none" id="yema">
+		            
+		          </ul>
+		        </div>
+		      </div>
+		    </footer>
+		  </div>
+		</div>
+ <!-- footer -->
+		  <div class="footer">
+			<div class="wthree-copyright">
+				<p>&copy;copyright 2018-2019. HuaXiaTangMen. All Rights Reserved. <span>|</span>
+			<a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow"> 华ICP证000001号</a></p>
+			</div>
+		  </div>
+  <!-- / footer -->
+	</section>
+
+<!--main content end-->
+</section>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="js/jquery.scrollTo.js"></script>
+</body>
+</html>

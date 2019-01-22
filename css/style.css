@@ -3157,3 +3157,26 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 .agileits-w3layouts-stats .col-md-8{
 	width: 100%;
 }
+
+.table-cont .table{
+	width:100%;
+	max-width: 100%;
+}
+.table-cont .table>thead>tr>th {
+	white-space: nowrap;
+	padding: 8px;
+	line-height: 1.42857143;
+}
+.table-cont .table>tbody>tr:hover{
+	background: #e3ecfc;
+}
+.table-cont{
+	/**make table can scroll**/
+	max-height: 250px;
+	overflow: auto;
+	/** add some style**/
+	/*padding: 2px;*/
+	background: #ddd;
+	margin: 20px 10px;
+	border: 1px solid #ddd;
+}

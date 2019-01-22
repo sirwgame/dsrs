@@ -1,4 +1,87 @@
 $(function(){
+	
+	window.onload=function(){
+		var visitorData;
+		var studentData;
+		var coachData;
+		
+		//获取游客初始数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getVisitorsCount/2018-12",
+			dataType:"json",
+			success:function(r){
+				if(month==2){
+					visitorData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					visitorData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					visitorData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[0].update({
+					data: visitorData
+				});
+			},
+			error:function(r){
+				layer.msg("数据获取失败或不完整！");
+				chart1.series[0].update({
+					data: [0]
+				});
+			}
+		});
+		//获取学员访问初始数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getStudentsVisitorCount/2018-12",
+			dataType:"json",
+			success:function(r){
+				if(month==2){
+					studentData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					studentData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					studentData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[1].update({
+					data: studentData
+				});
+			},
+			error:function(r){
+				layer.msg("数据获取失败或不完整！");
+				chart1.series[1].update({
+					data: [0]
+				});
+			}
+		});
+		//获取教练数据
+		$.ajax({
+			type:"get",
+			async:true,
+			url:"http://127.0.0.1:9080/getCoachsVisitorCount/2018-12",
+			dataType:"json",
+			success:function(r){
+				if(month==2){
+					coachData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine];
+				}else if(month==4||month==6||month==9||month==11){
+					coachData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty];
+				}else{
+					coachData=[r.one,r.two,r.three,r.four,r.five,r.six,r.seven,r.eight,r.nine,r.ten,r.eleven,r.twelve,r.thirteen,r.fourteen,r.fifteen,r.sixteen,r.seventeen,r.eighteen,r.nineteen,r.twenty,r.twentyone,r.twentytwo,r.twentythree,r.twentyfour,r.twentyfive,r.twentysix,r.twentyseven,r.twentyeight,r.twentynine,r.thirty,r.thirtyone];
+				}
+				chart1.series[2].update({
+					data: coachData
+				});
+			},
+			error:function(r){
+				layer.msg("数据获取失败或不完整！");
+				chart1.series[2].update({
+					data: [0]
+				});
+			}
+		});
+	}
+	
 	var options = {
 		"xAxis": [{
 			"type": "category",
@@ -12,25 +95,19 @@ $(function(){
 		}],
 		"series": [{
 				"name": "访客",
-				"data": [
-					65, 59, 80, 81, 56, 55, 40, 59, 45, 59
-				],
+				"data":[0],
 				"_colorIndex": 0,
 				"_symbolIndex": 0
 			},
 			{
 				"name": "学员",
-				"data": [
-					8, 57, 113, 17, 22, 248, 241, 201, 141
-				],
+				"data": [0],
 				"_colorIndex": 1,
 				"_symbolIndex": 1
 			},
 			{
 				"name": "教练",
-				"data": [
-					23, 21, 16, 8, 13, 17, 18
-				],
+				"data": [0],
 				"_colorIndex": 2,
 				"_symbolIndex": 2
 			}
@@ -77,37 +154,14 @@ $(function(){
 	var chart1 = Highcharts.chart('chartpanel', options);
 	
 	var options2 = {
-		"xAxis": [{
-			"type": "category",
-			"categories": [
-				"第一季度","第二季度","第三季度","第四季度"
-			],
-			"index": 0,
-			"isX": true
-		}],
-		"series": [{
-			"type": 'column',
-			"name": '学员数',
-			"data": [129.9, 171.5, 306.4, 429.2]
-		}, {
-			"type": 'column',
-			"name": '教练数',
-			"data": [69.9, 51.5, 176.4, 121.2]
-		}],
-		"yAxis": [{
-			"title": {
-				"text": "人数统计（人）"
-			},
-			"index": 0
-		}],
 		"chart": {
-			"style": {
-				"fontFamily": "\"微软雅黑\", Arial, Helvetica, sans-serif",
-				"color": "#333",
-				"fontSize": "12px",
-				"fontWeight": "normal",
-				"fontStyle": "normal"
-			}
+				"plotBackgroundColor": null,
+				"plotBorderWidth": null,
+				"plotShadow": false,
+				"type": 'pie'
+		},
+		"credits": {
+			"enabled": false
 		},
 		"title": {
 			"text": null,
@@ -117,97 +171,37 @@ $(function(){
 			"x": 0
 		},
 		"tooltip": {
-			"valueSuffix": "人次"
-		},
-		"legend": {
-			"layout": "vertical",
-			"align": "right",
-			"verticalAlign": "middle"
-		},
-		"credits": {
-			"enabled": false
+				"pointFormat": '{series.name}: <b>{point.y}</b> 人'
 		},
 		"plotOptions": {
-			"series": {
-				"animation": false
-			}
-		}
+				"pie": {
+						"allowPointSelect": true,
+						"cursor": 'pointer',
+						"dataLabels": {
+								"enabled": true,
+								"format": '<b>{point.name}</b>: {point.y} 人',
+								"style": {
+										"color": (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+						}
+				}
+		},
+		"series": [{
+				"name": '人数',
+				"colorByPoint": true,
+				"data": [{
+						"name": '教练',
+						"y": 6,
+						"sliced": true,
+						"selected": true
+				}, {
+						"name": '学员',
+						"y": 6
+				}]
+		}]
 	};
 	var chart2 = Highcharts.chart('chartpanel2', options2);
-	
-	$('#b1').click(function() {
-		chart.series[0].update({
-			data: [29.9, 71.5, 306.4, 429.2, 144.0, 176.0, 135.6, 248.5, 216.4, 194.1, 95.6, 54.4]
-		});
-	});
-	
-	$('#b2').click(function() {
-		chart.update({
-			series: [{
-				type: 'column',
-				name: 's1',
-				data: [129.9, 171.5, 306.4, 429.2, 144.0, 176.0, 135.6, 248.5, 216.4, 194.1, 95.6, 54.4]
-			}, {
-				type: 'column',
-				name: 's2',
-				data: [69.9, 51.5, 176.4, 121.2, 124.0, 476.0, 935.6, 248.5, 266.4, 191.1, 99.6, 53.4]
-			}]
-		});
-	});
-	
-	$('#b3').click(function() {
-		chart.addSeries({
-			type: 'column',
-			name: 's3',
-			data: [129.9, 171.5, 1106.4, 1129.2, 144.0, 176.0, 135.6, 1148.5, 216.4, 194.1, 95.6, 54.4]
-		});
-	});
-	
-	$('#b4').click(function() {
-		seriesData = [{
-			type: 'column',
-			name: 's1 new',
-			data: [234.9, 171.5, 1106.4, 1129.2, 144.0, 176.0, 135.6, 1148.5, 216.4, 194.1, 195.6, 454.4]
-		}];
-		while (chart.series.length > 0) {
-			chart.series[0].remove(true);
-		}
-		for (var i = 0; i < seriesData.length; i++) {
-			chart.addSeries(seriesData[i]);
-		}
-	});
-	
-	$('#b5').click(function() {
-		seriesData = [{
-			type: 'column',
-			name: 's1 new',
-			data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-		}, {
-			type: 'column',
-			name: 's2 new',
-			data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-		}, {
-			type: 'column',
-			name: 's3 new',
-			data: [234.9, 171.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 195.6, 454.4]
-		}];
-	
-		var diff = chart.series.length - seriesData.length;
-		if (diff > 0) {
-			for (var i = chart.series.length; i > diff; i--) {
-				chart.series[i - 1].remove(true);
-			}
-		} else if (diff < 0) {
-			for (var i = chart.series.length; i < seriesData.length; i++) {
-				chart.addSeries({});
-			}
-		}
-	
-		chart.update({
-			series: seriesData
-		});
-	
-	});
+
 	
 	//改变网站流量统计图--年
 	$("#year").on("change",function (){
@@ -234,6 +228,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[0].update({
 					data: [0]
 				});
@@ -259,6 +254,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[1].update({
 					data: [0]
 				});
@@ -284,6 +280,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[2].update({
 					data: [0]
 				});
@@ -316,6 +313,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[0].update({
 					data: [0]
 				});
@@ -341,6 +339,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[1].update({
 					data: [0]
 				});
@@ -366,6 +365,7 @@ $(function(){
 				});
 			},
 			error:function(r){
+				layer.msg("数据获取失败或不完整！");
 				chart1.series[2].update({
 					data: [0]
 				});
