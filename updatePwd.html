@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人中心</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="description" content="Developed By M Abdur Rokib Promy">
+    <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+    <!-- bootstrap 3.0.2 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar -->
+    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+    <!-- Daterange picker -->
+    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link href="css/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+	<!-- jQuery 2.0.2 -->
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<!-- jQuery UI 1.10.3 -->
+	<script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <!-- Theme style -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="layui/css/layui.css" rel="stylesheet" type="text/css" />
+	<script src="layer/layer.js"></script>
+	<script src="laydate/laydate.js"></script>
+	<script src="js/reg.js" type="text/javascript"></script>
+	<script src="js/general.js" type="text/javascript"></script>
+</head>
+<body class="skin-black">
+<!-- header logo: style can be found in header.less -->
+<header class="header">
+	<a href="index.html" class="logo">
+			我的个人中心
+	</a>
+	<!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top" role="navigation">
+		<!-- Sidebar toggle button-->
+		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+		<div class="navbar-right">
+			<ul class="nav navbar-nav">
+				<!-- Messages: style can be found in dropdown.less-->
+				<li class="dropdown tasks-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="查看消息列表">
+						<i class="fa fa-envelope"></i>
+						<span class="label label-danger">9</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<header class="panel-heading">你有1条新消息</header>
+							<div class="panel-body table-responsive">
+								<table class="table table-hover" style="margin-bottom: 0;">
+									<thead>
+										<tr>
+											<th>编号</th>
+											<th>消息</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Facebook</td>
+											<td>Mark</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user user-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-user"></i>
+							<span id="user"><i class="caret"></i></span>
+					</a>
+					<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+							<li class="dropdown-header text-center">我的账户</li>
+							<li>
+								<a href="index.html">
+									<i class="fa fa-user fa-fw pull-right"></i>我的基本信息
+								</a>
+								<a href="updateInfo.html">
+									<i class="fa fa-edit fa-fw pull-right"></i>修改基本信息
+								</a>
+								<a href="updatePwd.html">
+									<i class="fa fa-edit fa-fw pull-right"></i>修改密码
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="trainArrange.html">
+									<i class="fa fa-list fa-fw pull-right"></i>我的学车安排
+								</a>
+								<a href="myScore.html">
+									<i class="fa fa-magnet fa-fw pull-right"></i>我的成绩
+								</a>
+								<a href="post.html">
+									<i class="fa fa-file-text-o fa-fw pull-right"></i>我的帖子
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="/index.html"><i class="fa fa-reply fa-fw pull-right"></i>返回主页</a>
+								<a href="#"><i class="fa fa-ban fa-fw pull-right"></i>退出</a>
+							</li>
+						</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+	<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img src="img/26115.jpg" class="img-circle" alt="User Image" />
+			</div>
+			<div class="pull-left info">
+				<p id="hello"></p>
+				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+			</div>
+		</div>
+		<!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu">
+			<li>
+				<a href="index.html">
+					<i class="fa fa-user"></i>我的基本信息
+				</a>
+			</li>
+			<li>
+				<a href="updateInfo.html">
+					<i class="fa fa-edit"></i>修改基本信息
+				</a>
+			</li>
+			<li class="active">
+				<a href="updatePwd.html">
+					<i class="fa fa-edit"></i>修改密码
+				</a>
+			</li>
+			<li>
+				<a href="trainArrange.html">
+					<i class="fa fa-list"></i>我的学车安排
+				</a>
+			</li>
+			<li>
+				<a href="myScore.html">
+					<i class="fa fa-magnet"></i>我的成绩
+				</a>
+			</li>
+			<li>
+				<a href="post.html">
+					<i class="fa fa-file-text-o"></i>我的帖子
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>
+
+<aside class="right-side">
+
+<!-- Main content -->
+<section class="content">
+<!-- Main row -->
+<div class="row">
+	<section class="panel" style="width: 100%;">
+		<header class="panel-heading">
+			修改密码
+		</header>
+		<div class="panel-body">
+			<form class="layui-form layui-form-pane" id="info">
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">学员号</label>
+						<div class="layui-input-inline">
+							<input type="text" id="id" class="layui-input" title="系统自动生成,不可修改" style="text-align: center;cursor: not-allowed;" readonly>
+						</div>
+						<label class="layui-form-label" style="width: 300px;">[系统自动填入]</label>
+					</div>
+					<br />
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">
+							原密码
+						</label>
+						<div class="layui-input-inline">
+							<input type="password" id="beforePwd" name="beforePwd" class="layui-input" style="text-align: center;" onkeyup="this.value=this.value.replace(/[^\w_]/g,'');" onkeydown="PwdRule(this.name)" onblur="PwdRule(this.name)" required>
+						</div>
+						<label id="before_Pwd" class="layui-form-label" style="width: 300px;text-align: center;">[自动检测密码强度或自动判断是否为空]</label>
+						<label class="layui-form-label" style="width: 400px;margin-left: 10px;">请输入6~18位密码，不可包含中文和特殊字符</label>
+					</div>
+					<br />
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">
+							现密码
+						</label>
+						<div class="layui-input-inline">
+							<input type="password" id="nowPwd" name="nowPwd" class="layui-input" style="text-align: center;" onkeyup="this.value=this.value.replace(/[^\w_]/g,'');" onkeydown="PwdRule(this.name)" onblur="PwdRule(this.name)" required>
+						</div>
+						<label id="now_Pwd" class="layui-form-label" style="width: 300px;">[自动检测密码强度或自动判断是否为空]</label>
+						<label class="layui-form-label" style="width: 400px;margin-left: 10px;">请输入6~18位密码，不可包含中文和特殊字符</label>
+					</div>
+					<br />
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">
+							确认密码
+						</label>
+						<div class="layui-input-inline">
+							<input type="password" id="pwdAgain" name="pwdAgain" class="layui-input" style="text-align: center;" onkeyup="this.value=this.value.replace(/[^\w_]/g,'');" onkeydown="PwdRule(this.name)" onblur="PwdRule2(this.value)"  required>
+						</div>
+						<label id="pwd_Again" class="layui-form-label" style="width: 300px;">[自动检测密码强度或自动判断是否为空]</label>
+						<label class="layui-form-label" style="width: 400px;margin-left: 10px;">请输入6~18位密码，不可包含中文和特殊字符</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<div style="text-align: center;">
+		<button class="layui-btn layui-btn-primary" onclick="reset()">重置密码</button>
+		<button class="layui-btn layui-btn-primary" onclick="updatePwd()">提交修改</button>
+	</div>
+</div>
+</section><!-- /.content -->
+<div class="footer-main" style="margin-top: 120px;">
+	<p>&copy;copyright 2018-2019. HuaXiaTangMen. All Rights Reserved. <span>|</span>
+<a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow"> 华ICP证000001号</a></p>
+</div>
+</aside><!-- /.right-side -->
+	</div><!-- ./wrapper -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/Director/dashboard.js" type="text/javascript"></script>
+<!-- daterangepicker -->
+<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<!-- Director App -->
+<script src="js/Director/app.js" type="text/javascript"></script>
+</body>
+</html>

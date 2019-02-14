@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人中心</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="description" content="Developed By M Abdur Rokib Promy">
+    <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+    <!-- bootstrap 3.0.2 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar -->
+    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+    <!-- Daterange picker -->
+    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link href="css/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+	<!-- jQuery 2.0.2 -->
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<!-- jQuery UI 1.10.3 -->
+	<script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <!-- Theme style -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="layui/css/layui.css" rel="stylesheet" type="text/css" />
+	<script src="layer/layer.js"></script>
+	<script src="laydate/laydate.js"></script>
+	<script src="js/trainDate.js" type="text/javascript"></script>
+	<script src="js/general.js" type="text/javascript"></script>
+</head>
+<body class="skin-black">
+<!-- header logo: style can be found in header.less -->
+<header class="header">
+	<a href="index.html" class="logo">
+			我的个人中心
+	</a>
+	<!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top" role="navigation">
+		<!-- Sidebar toggle button-->
+		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+		<div class="navbar-right">
+			<ul class="nav navbar-nav">
+				<!-- Messages: style can be found in dropdown.less-->
+				<li class="dropdown tasks-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="查看消息列表">
+						<i class="fa fa-envelope"></i>
+						<span class="label label-danger">9</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<header class="panel-heading">你有1条新消息</header>
+							<div class="panel-body table-responsive">
+								<table class="table table-hover" style="margin-bottom: 0;">
+									<thead>
+										<tr>
+											<th>编号</th>
+											<th>消息</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Facebook</td>
+											<td>Mark</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user user-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-user"></i>
+							<span id="user"><i class="caret"></i></span>
+					</a>
+					<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+							<li class="dropdown-header text-center">我的账户</li>
+							<li>
+								<a href="index.html">
+									<i class="fa fa-user fa-fw pull-right"></i>我的基本信息
+								</a>
+								<a href="updateInfo.html">
+									<i class="fa fa-edit fa-fw pull-right"></i>修改基本信息
+								</a>
+								<a href="updatePwd.html">
+									<i class="fa fa-edit fa-fw pull-right"></i>修改密码
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="trainArrange.html">
+									<i class="fa fa-list fa-fw pull-right"></i>我的学车安排
+								</a>
+								<a href="myScore.html">
+									<i class="fa fa-magnet fa-fw pull-right"></i>我的成绩
+								</a>
+								<a href="post.html">
+									<i class="fa fa-file-text-o fa-fw pull-right"></i>我的帖子
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="/index.html"><i class="fa fa-reply fa-fw pull-right"></i>返回主页</a>
+								<a href="#"><i class="fa fa-ban fa-fw pull-right"></i>退出</a>
+							</li>
+						</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+	<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img src="img/26115.jpg" class="img-circle" alt="User Image" />
+			</div>
+			<div class="pull-left info">
+				<p id="hello"></p>
+				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+			</div>
+		</div>
+		<!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu">
+			<li>
+				<a href="index.html">
+					<i class="fa fa-user"></i>我的基本信息
+				</a>
+			</li>
+			<li>
+				<a href="updateInfo.html">
+					<i class="fa fa-edit"></i>修改基本信息
+				</a>
+			</li>
+			<li>
+				<a href="updatePwd.html">
+					<i class="fa fa-edit"></i>修改密码
+				</a>
+			</li>
+			<li class="active">
+				<a href="trainArrange.html">
+					<i class="fa fa-list"></i>我的学车安排
+				</a>
+			</li>
+			<li>
+				<a href="myScore.html">
+					<i class="fa fa-magnet"></i>我的成绩
+				</a>
+			</li>
+			<li>
+				<a href="post.html">
+					<i class="fa fa-file-text-o"></i>我的帖子
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>
+
+<aside class="right-side">
+
+<!-- Main content -->
+<section class="content">
+<!-- Main row -->
+<div class="row">
+	<section class="panel" style="width: 100%;">
+		<header class="panel-heading">
+			我的学车安排
+		</header>
+		<div class="panel-body">
+			<form class="layui-form layui-form-pane" id="info">
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">当前进度</label>
+						<div class="layui-input-inline">
+							<input type="text" id="process" class="layui-input" title="系统自动获取" style="text-align: center;" readonly>
+							<input type="text" id="id2" class="layui-input" title="系统自动获取" style="text-align: center;display: none;" readonly>
+						</div>
+					</div>
+				</div>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">是否已预约</label>
+						<div class="layui-input-inline">
+							<input type="text" id="istrain" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+						<label class="layui-form-label" style="width: 300px;">
+							<a id="forTrain" href="javascript:;" onclick="forTrain()" style="color: #00a65a;"></a>
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<section id="train" class="panel" style="width: 100%;display: none;">
+		<header class="panel-heading">
+			预约学车
+		</header>
+		<div class="panel-body">
+			<form class="layui-form layui-form-pane" id="info">
+				<div style="display: inline-block;float: left;">
+					<div>
+						<div style="float: left;display: inline-block;">
+							<div class="layui-form-item" style="display: inline-block;">
+								<label class="layui-form-label" style="width: 200px;">请选择时间</label>
+								<div class="layui-input-inline" style="width: 720px;">
+									<input id="test1" type="text" name="input" class="layui-input" title="系统自动获取" value="" style="text-align: center;" placeholder="[点此选择时间范围]">
+									<input type="text" id="date" style="display: none;">
+									<input type="text" id="endDate" style="display: none;">
+									<script type="text/javascript">
+										laydate.render({
+											elem: '#test1',
+											min: 'new Date()',
+											range: true,
+											done:function(value, date, endDate) {
+												//{year: 2017, month: 8, date: 18},
+												var date1=date.year+"-"+
+																	(date.month>10?date.month:"0"+date.month)+"-"+
+																	(date.date>10?date.date:"0"+date.date);
+												var date2=endDate.year+"-"+
+																	(endDate.month>10?endDate.month:"0"+endDate.month)+"-"+
+																	(endDate.date>10?endDate.date:"0"+endDate.date);
+												var d=dateDiff(date1,date2);
+												if((d+1)==4){
+													console.log(date1);
+													$("#date").val(date1);
+													$("#endDate").val(date2);
+													$("#lasttime").val(d+1);
+												}else{
+													layer.msg("练车时间必须为4天！");
+												}
+											}
+										});
+										function dateDiff(date1, date2){     
+											var type1 = typeof date1, type2 = typeof date2;     
+											if(type1 == 'string')     
+												date1 = stringToTime(date1);     
+											else if(date1.getTime)     
+												date1 = date1.getTime();     
+											if(type2 == 'string')     
+												date2 = stringToTime(date2);     
+											else if(date2.getTime)     
+												date2 = date2.getTime(); 
+											return (date2 - date1) / 1000 / 60 / 60 / 24;//除1000是毫秒，不加是秒 
+										} 
+										//字符串转成Time(dateDiff)所需方法 
+										function stringToTime(string){     
+											var f = string.split(' ', 2);     
+											var d = (f[0] ? f[0] : '').split('-', 3);     
+											var t = (f[1] ? f[1] : '').split(':', 3);     
+											return (new Date(     
+											parseInt(d[0], 10) || null,     
+											(parseInt(d[1], 10) || 1)-1,     
+											parseInt(d[2], 10) || null,     
+											parseInt(t[0], 10) || null,    
+											parseInt(t[1], 10) || null,     
+											parseInt(t[2], 10) || null)).getTime(); 
+										}
+									</script>  
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div style="display: inline-block;float: left;">
+							<div class="layui-form-item" style="display: inline-block;">
+								<label class="layui-form-label" style="width: 200px;">请选择教练</label>
+								<div class="layui-input-inline" style="width: 510px;">
+									<input id="trainContent" type="text" name="id" class="layui-input" title="系统自动获取" value="" style="text-align: center;color: #999;" readonly>
+								</div>
+								<label class="layui-form-label" style="width: 200px;">
+									<a id="list" href="javascript:;" onclick="showCoachList()" style="color: #999;">[查看教练列表]</a>
+								</label>
+							</div>
+							<div id="caochtab" class="table-cont" style="display: none;">
+								<table id="tab" class="table table-striped b-t b-light" style="text-align: center;">
+									<thead>
+										<tr>
+											<td style="font-weight: bold;">选择教练</td>
+											<td style="font-weight: bold;">教练编号</td>
+											<td style="font-weight: bold;">教练姓名</td>
+											<td style="font-weight: bold;">教练评分</td>
+										</tr>
+									</thead>
+									<tbody>
+										<!--创建一个空行 -->
+										<tr id="dynamicCoach">
+											<td class="td07"></td>
+											<td class="td07"></td>
+											<td class="td07"></td>
+											<td class="td07"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div style="text-align: center;">
+			<button type="button"  class="layui-btn layui-btn-primary" onclick="addTrain()">提交预约</button>
+		</div>
+	</section>
+	<section id="train_result" class="panel" style="width: 100%;display: none;">
+		<header class="panel-heading">
+			<div id="t_title">我的预约结果</div>
+		</header>
+		<div class="panel-body">
+			<form class="layui-form layui-form-pane" id="info">
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">当前状态</label>
+						<div class="layui-input-inline">
+							<input type="text" id="r_status" class="layui-input" title="系统自动获取" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">预约时间</label>
+						<div class="layui-input-inline">
+							<input type="text" id="r_time" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">预约教练</label>
+						<div class="layui-input-inline">
+							<input type="text" id="r_coach" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<section id="train_process" class="panel" style="width: 100%;display: none;">
+		<header class="panel-heading">
+			<div id="t_title">我的学车进度</div>
+		</header>
+		<div class="panel-body">
+			<form class="layui-form layui-form-pane" id="info">
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">当前状态</label>
+						<div class="layui-input-inline">
+							<input type="text" id="process_status" class="layui-input" title="系统自动获取" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">学车时间</label>
+						<div class="layui-input-inline">
+							<input type="text" id="process_time" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">我的教练</label>
+						<div class="layui-input-inline">
+							<input type="text" id="process_coach" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div><br>
+				<div style="display: inline-block;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">已练习时间</label>
+						<div class="layui-input-inline">
+							<input type="text" id="timeused" class="layui-input" title="系统自动获取" value="" style="text-align: center;" readonly>
+						</div>
+					</div>
+				</div>
+				<div id="my_pingfen" style="display: none;float: left;">
+					<div class="layui-form-item" style="display: inline-block;">
+						<label class="layui-form-label">我的评分</label>
+						<div class="layui-input-inline" style="width: 250px;padding-left: 20px;">
+							<div id="test2"></div>
+							<input id="pingfen" style="display: none;"/>
+							<script src="layui/layui.js" charset="utf-8"></script>
+							<script>
+								layui.use(['rate'], function(){
+									var rate = layui.rate;							 
+									//显示文字
+									rate.render({
+										elem: '#test2'
+										,value: 0 //初始值
+										,text: true //开启文本
+										,choose: function(value){
+											$("#pingfen").val(value);
+										}
+									});
+								});
+							</script>
+						</div>
+					
+						<div class="layui-input-inline" style="width: 250px;padding-left: 20px;">
+							<div id="test2"></div>
+							<input id="pingfen" style="display: none;"/>
+							<script src="layui/layui.js" charset="utf-8"></script>
+							<script>
+								layui.use(['rate'], function(){
+									var rate = layui.rate;							 
+									//显示文字
+									rate.render({
+										elem: '#test2'
+										,value: 0 //初始值
+										,text: true //开启文本
+										,choose: function(value){
+											$("#pingfen").val(value);
+										}
+									});
+								});
+							</script>
+						</div>						<button id="pingfen_bu" type="button" class="layui-btn layui-btn-primary" onclick="submitScore()">提交评分</button>
+						<a href="javascript:void(0)" data-toggle="modal" data-target="#level" title="查看评分标准"><li class="glyphicon glyphicon-question-sign"></li></a>
+						<!-- 附加模态框开始(level) -->
+						<div class="modal fade" id="level" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog" style="width: 800px;">
+								<div class="modal-content">
+										<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel coach_id">评分标准</h4>
+										</div>
+										<div id="body" class="modal-body">
+											<table class="table table-striped b-t b-light table2" style="text-align: center;">
+												<tr>
+													<td>评分星级</td>
+													<td>评分说明</td>
+												</tr>
+												<tr>
+													<td style="font-size: 18px;">★☆☆☆☆</td>
+													<td style="text-align: left;">
+														1、普通话很差；语言组织很差；口头禅和脏话不离嘴。<br>
+														2、吹口哨、搔耳等影响教练形象的小动作经常出现。<br>
+														3、完全不能调动学员的参与积极性。<br>
+														4、完全不能很好的控场，完全不能保持学车过程中的氛围是积极踊跃向上的。<br>
+														5、完全不讲解安全注意事项；完全不能够及时避免安全事故。<br>
+														6、学车过程中不讲解每一个步骤，耐心很差。
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size: 18px;">★★☆☆☆</td>
+													<td style="text-align: left;">
+														1、普通话较差；语言组织较差；经常会有口头禅和脏话。<br>
+														2、经常出现吹口哨、搔耳等影响教练形象的小动作。<br>
+														3、不能调动学员的参与积极性。<br>
+														4、不能很好的控场，不能保持学车过程中的氛围是积极踊跃向上的。<br>
+														5、不怎么注意讲解安全注意事项；偶尔能够及时避免安全事故。<br>
+														6、学车过程中不怎么讲解每一个步骤，耐心较差。
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size: 18px;">★★★☆☆</td>
+													<td style="text-align: left;">
+														1、普通话一般；语言组织一般；经常会有口头禅和脏话。<br>
+														2、经常出现吹口哨、搔耳等影响教练形象的小动作。<br>
+														3、偶尔能调动学员的参与积极性。<br>
+														4、偶尔能很好的控场，偶尔能保持学车过程中的氛围是积极踊跃向上的。<br>
+														5、不怎么注意讲解安全注意事项；偶尔能够及时避免安全事故。<br>
+														6、学车过程中基本能够讲解每一个步骤。
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size: 18px;">★★★★☆</td>
+													<td style="text-align: left;">
+														1、普通话一般；语言组织一般；偶尔会有口头禅和脏话。<br>
+														2、偶尔出现吹口哨、搔耳等影响教练形象的小动作。<br>
+														3、基本能调动学员的参与积极性。<br>
+														4、基本能很好的控场，保持学车过程中的氛围是积极踊跃向上的。<br>
+														5、较详细讲解安全注意事项；基本能够及时发现并避免安全事故。<br>
+														6、学车过程中基本能够细节讲解每一个步骤，有耐心。
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size: 18px;">★★★★★</td>
+													<td style="text-align: left;">
+														1、普通话标准；语言组织流畅；没有说过口头禅和脏话。<br>
+														2、不出现吹口哨、搔耳等影响教练形象的小动作。<br>
+														3、能调动学员的参与积极性。<br>
+														4、能很好的控场，保持学车过程中的氛围是积极踊跃向上的。<br>
+														5、详细讲解安全注意事项；能够及时发现并避免安全事故。<br>
+														6、学车过程中细节讲解每一个步骤，有耐心。
+													</td>
+												</tr>
+											</table>
+										</div>
+										<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+										</div>
+								</div>
+							</div>
+						</div>
+						<!-- 附加模态框结束(level) -->
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</div>
+</section><!-- /.content -->
+<div class="footer-main" style="margin-top: 120px;">
+	<p>&copy;copyright 2018-2019. HuaXiaTangMen. All Rights Reserved. <span>|</span>
+<a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow"> 华ICP证000001号</a></p>
+</div>
+</aside><!-- /.right-side -->
+	</div><!-- ./wrapper -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/Director/dashboard.js" type="text/javascript"></script>
+<!-- daterangepicker -->
+<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<!-- Director App -->
+<script src="js/Director/app.js" type="text/javascript"></script>
+</body>
+</html>

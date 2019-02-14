@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人中心</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="description" content="Developed By M Abdur Rokib Promy">
+    <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+    <!-- bootstrap 3.0.2 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar -->
+    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+    <!-- Daterange picker -->
+    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link href="css/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+	<!-- jQuery 2.0.2 -->
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<!-- jQuery UI 1.10.3 -->
+	<script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <!-- Theme style -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="layui/css/layui.css" rel="stylesheet" type="text/css" />
+	<script src="layer/layer.js"></script>
+	<script src="laydate/laydate.js"></script>
+	<script src="js/reg.js" type="text/javascript"></script>
+	<script src="js/getUser.js" type="text/javascript"></script>
+	<script src="js/uploadImage.js" type="text/javascript"></script>
+</head>
+<body class="skin-black">
+	<!-- header logo: style can be found in header.less -->
+	<header class="header">
+			<a href="index.html" class="logo">
+					我的个人中心
+			</a>
+			<!-- Header Navbar: style can be found in header.less -->
+			<nav class="navbar navbar-static-top" role="navigation">
+					<!-- Sidebar toggle button-->
+					<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+					</a>
+					<div class="navbar-right">
+						<ul class="nav navbar-nav">
+							<!-- Messages: style can be found in dropdown.less-->
+							<li class="dropdown tasks-menu">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="查看消息列表">
+											<i class="fa fa-envelope"></i>
+											<span class="label label-danger">9</span>
+									</a>
+									<ul class="dropdown-menu">
+											<li>
+												<header class="panel-heading">你有1条新消息</header>
+												<div class="panel-body table-responsive">
+													<table class="table table-hover" style="margin-bottom: 0;">
+														<thead>
+															<tr>
+																<th>编号</th>
+																<th>消息</th>
+																<th>操作</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>1</td>
+																<td>Facebook</td>
+																<td>Mark</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</li>
+									</ul>
+							</li>
+							<!-- User Account: style can be found in dropdown.less -->
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-user"></i>
+										<span id="user"><i class="caret"></i></span>
+								</a>
+								<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+										<li class="dropdown-header text-center">我的账户</li>
+										<li>
+											<a href="index.html">
+												<i class="fa fa-user fa-fw pull-right"></i>我的基本信息
+											</a>
+											<a href="updateInfo.html">
+												<i class="fa fa-edit fa-fw pull-right"></i>修改基本信息
+											</a>
+											<a href="updatePwd.html">
+												<i class="fa fa-edit fa-fw pull-right"></i>修改密码
+											</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="trainArrange.html">
+												<i class="fa fa-list fa-fw pull-right"></i>我的学车安排
+											</a>
+											<a href="myScore.html">
+												<i class="fa fa-magnet fa-fw pull-right"></i>我的成绩
+											</a>
+											<a href="post.html">
+												<i class="fa fa-file-text-o fa-fw pull-right"></i>我的帖子
+											</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="/index.html"><i class="fa fa-reply fa-fw pull-right"></i>返回主页</a>
+											<a href="#"><i class="fa fa-ban fa-fw pull-right"></i>退出</a>
+										</li>
+									</ul>
+							</li>
+						</ul>
+					</div>
+			</nav>
+	</header>
+		<div class="wrapper row-offcanvas row-offcanvas-left">
+			<!-- Left side column. contains the logo and sidebar -->
+		<aside class="left-side sidebar-offcanvas">
+				<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+						<!-- Sidebar user panel -->
+						<div class="user-panel">
+								<div class="pull-left image">
+										<img class="img-circle" alt="User Image" />
+								</div>
+								<div class="pull-left info">
+										<p  id="hello"></p>
+
+										<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+								</div>
+						</div>
+						<!-- sidebar menu: : style can be found in sidebar.less -->
+						<ul class="sidebar-menu">
+							<li>
+								<a href="index.html">
+									<i class="fa fa-user"></i>我的基本信息
+								</a>
+							</li>
+							<li class="active">
+								<a href="updateInfo.html">
+									<i class="fa fa-edit"></i>修改基本信息
+								</a>
+							</li>
+							<li>
+								<a href="updatePwd.html">
+									<i class="fa fa-edit"></i>修改密码
+								</a>
+							</li>
+							<li>
+								<a href="trainArrange.html">
+									<i class="fa fa-list"></i>我的学车安排
+								</a>
+							</li>
+							<li>
+								<a href="myScore.html">
+									<i class="fa fa-magnet"></i>我的成绩
+								</a>
+							</li>
+							<li>
+								<a href="post.html">
+									<i class="fa fa-file-text-o"></i>我的帖子
+								</a>
+							</li>
+						</ul>
+				</section>
+				<!-- /.sidebar -->
+		</aside>
+
+		<aside class="right-side">
+
+		<!-- Main content -->
+		<section class="content">
+			<!-- Main row -->
+			<div class="row">
+				<section class="panel" style="width: 100%;">
+					<header class="panel-heading">
+						修改基本信息
+					</header>
+					<div class="panel-body">
+						<form class="layui-form layui-form-pane" id="info">
+							<div style="display: inline-block;float: left;">
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">学员号</label>
+									<div class="layui-input-inline">
+										<input type="text" id="id" class="layui-input" title="系统自动生成,不可修改" style="text-align: center;cursor: not-allowed;" readonly>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">
+										学员姓名
+									</label>
+									<div class="layui-input-inline">
+										<input type="text" id="name" class="layui-input" style="text-align: center;" maxlength="20" required>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">
+										学员年龄<li id="age_li" class="fa fa-exclamation-circle" style="color: red;display: none;" title=""></li>
+									</label>
+									<div class="layui-input-inline">
+										<input type="text" id="age" class="layui-input" style="text-align: center;" maxlength="3" onblur="Age()" required>
+									</div>
+								</div>
+								<br />
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">学员性别</label>
+									<div class="layui-input-inline">
+										<div style="margin-left: 38px;" class="layui-unselect layui-form-radio" onclick="changeSex('m')"><i id="male" class="layui-anim layui-icon" style="color: #5fb878;"></i><div>男</div></div>
+										<div class="layui-unselect layui-form-radio" onclick="changeSex('f')"><i id="female" class="layui-anim layui-icon layui-anim-scaleSpring"></i><div>女</div></div>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">学员民族</label>
+									<div class="layui-input-inline">
+										<input type="text" id="nation" class="layui-input" style="text-align: center;cursor: not-allowed;"  readonly>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">学员籍贯</label>
+									<div class="layui-input-inline">
+										<input type="text" id="address" class="layui-input" style="text-align: center;" required>
+									</div>
+								</div>
+								<br />
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">出生日期</label>
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="test1" placeholder="1970-01-01" required>
+								</div>
+								<input type="text" id="birDate" style="display: none;">
+								<script type="text/javascript">
+									laydate.render({
+										elem: '#test1',
+										max: 'new Date()',
+										done:function(value, date, endDate) {
+											var date1=date.year+"-"+
+													(date.month>10?date.month:"0"+date.month)+"-"+
+													(date.date>10?date.date:"0"+date.date);
+											$("#birDate").val(date1);
+											console.log(date1);
+										}
+									});
+								</script>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">
+										联系方式<li id="phone_li" class="fa fa-exclamation-circle" style="color: red;display: none;" title=""></li>
+									</label>
+									<div class="layui-input-inline">
+										<input type="text" id="phone" class="layui-input" style="text-align: center;" onblur="isNumber()" required>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">
+										学员邮箱<li id="email_li" class="fa fa-exclamation-circle" style="color: red;display: none;" title=""></li>
+									</label>
+									<div class="layui-input-inline">
+										<input type="email" id="email" class="layui-input" style="text-align: center;" onblur="isEamil()" required>
+									</div>
+								</div>
+								<br />
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">
+										身份证号<li id="card_li" class="fa fa-exclamation-circle" style="color: red;display: none;" title=""></li>
+									</label>
+									<div class="layui-input-inline">
+										<input type="text" id="card" class="layui-input" style="text-align: center;cursor: not-allowed;"  readonly>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">注册日期</label>
+									<div class="layui-input-inline">
+										<input type="text" id="registryDate" class="layui-input" title="注册账号时自动生成,不可修改" style="text-align: center;cursor: not-allowed;" readonly>
+									</div>
+								</div>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label">学员身份</label>
+									<div class="layui-input-inline">
+										<input type="text" id="indentifiy" class="layui-input" style="cursor: not-allowed;text-align: center;" readonly>
+									</div>
+								</div>
+							</div>
+							<div style="height: 180px;width: 140px;display: inline-block;float: right;margin-top: 10px;">
+								<a href="javascript:void(0)" data-toggle="modal" data-target="#pic" title="点击更改照片"><img id="headimage"/></a>
+								<div class="layui-form-item" style="display: inline-block;">
+									<label class="layui-form-label" style="width: 120px;">学员照片</label>
+									<!-- 修改照片开始 -->
+									<div class="modal fade" id="pic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+													<div class="modal-content">
+															<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																	<h4 class="modal-title" id="myModalLabel">上传新照片</h4>
+															</div>
+															<div id="body" class="modal-body">
+																<div class="container" id="image" >																
+																	<form id="imgForm" action="http://127.0.0.1:9080/upload" method="post">
+																		<input id="file_input" name="file" type="file" onchange="changepic(this)" accept="image/jpeg">
+																		<br/>
+																		<label>请选择一个图像文件：</label>  
+																		<button type="button" class="layui-btn layui-btn-primary" onclick="loadImg()">获取图片</button>
+																		<div class="addBorder result" id="imgDiv" style="margin-top: 5px;">
+																			<img id="imgContent">
+																		</div>
+																	</form>
+																</div>    
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+																<button type="button" class="btn btn-primary" onclick="upload()">上传</button>
+															</div>
+													</div>
+											</div>
+									</div>
+									<!-- 修改照片结束 -->
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+				<div style="text-align: center;">
+					<button class="layui-btn layui-btn-primary" onclick="update()">提交修改</button>
+				</div>
+			</div>
+		</section><!-- /.content -->
+		<div class="footer-main" style="margin-top: 120px;">
+				<p>&copy;copyright 2018-2019. HuaXiaTangMen. All Rights Reserved. <span>|</span>
+			<a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow"> 华ICP证000001号</a></p>
+		</div>
+		</aside><!-- /.right-side -->
+	</div><!-- ./wrapper -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/Director/dashboard.js" type="text/javascript"></script>
+<!-- daterangepicker -->
+<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<!-- Director App -->
+<script src="js/Director/app.js" type="text/javascript"></script>
+</body>
+</html>
